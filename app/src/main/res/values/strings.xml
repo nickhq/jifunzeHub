@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Collapsing Toolbar</string>
+
+    <string name="biology">Biology</string>
+    <string name="biology_class">Biology class - DNA strand</string>
+    <string name="biology_desc">Life is beautiful! From atoms to cells, from genes to proteins, from populations to ecosystems, biology is the study of the fascinating and intricate systems that make life possible.</string>
+
+    <string name="chemistry">Chemistry</string>
+    <string name="chemistry_class">Chemistry class - Experiment</string>
+    <string name="chemistry_desc">Learn about topics ranging from the fundamentals of chemistry and details about atoms, elements and the periodic table to advanced concepts such as states of matter, gasses and their properties and the nature of substances.</string>
+
+    <string name="computer">Computer Studies</string>
+    <string name="computer_class">Computer Studies class - Monitor</string>
+    <string name="computer_desc">Microsoft Office. Virtually all workers have some familiarity with Microsoft Word;Spreadsheets;PowerPoint;Microsoft Access;QuickBooks;Email;Web and Social Skills;Graphic and Writing Skills.</string>
+
+    <string name="business">Business Studies</string>
+    <string name="business_class">Business Studies - Give Money</string>
+    <string name="business_desc">Combines the elements of accountancy, finance, marketing, organizational studies and economics.</string>
+    <string name="add_subject">Add Subject</string>
+    <string name="add_a_new_subject">Add a New Subject</string>
+</resources>
