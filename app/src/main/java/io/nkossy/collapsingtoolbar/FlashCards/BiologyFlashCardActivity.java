@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar;
+package io.nkossy.collapsingtoolbar.FlashCards;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 
-public class BiologyActivity extends AppCompatActivity {
+import io.nkossy.collapsingtoolbar.R;
+
+public class BiologyFlashCardActivity extends AppCompatActivity {
 
     ArrayList<String> al;
     ArrayAdapter<String> arrayAdapter;
@@ -18,7 +20,7 @@ public class BiologyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_biology);
+        setContentView(R.layout.activity_flash_cards_biology);
 
 
         //add the view via xml or programmatically
@@ -31,7 +33,7 @@ public class BiologyActivity extends AppCompatActivity {
         al.add("java");
 
         //choose your favorite adapter
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.textView, al );
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.flash_card_item, R.id.textView, al );
 
         //set the listener and the adapter
         flingContainer.setAdapter(arrayAdapter);
@@ -49,12 +51,12 @@ public class BiologyActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
-                Toast.makeText(BiologyActivity.this, "Left!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BiologyFlashCardActivity.this, "Left!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Toast.makeText(BiologyActivity.this, "Right!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BiologyFlashCardActivity.this, "Right!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -76,7 +78,7 @@ public class BiologyActivity extends AppCompatActivity {
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(BiologyActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BiologyFlashCardActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
             }
         });
     }
