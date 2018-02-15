@@ -106,7 +106,7 @@ public class NavigationActivity extends AppCompatActivity
                         //Intent start to open the navigation drawer activity
                         progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
                         Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
-                        intent.putExtra(Message, "c1");//by this statement we are sending the name of the button that invoked the new QuestionActivity.java activity "Message" is defined by the name of the package + MESSAGE
+                        intent.putExtra(Message, "computerIntent");//by this statement we are sending the name of the button that invoked the new QuestionActivity.java activity "Message" is defined by the name of the package + MESSAGE
                         startActivity(intent);
                     }
                 }, 2000);
