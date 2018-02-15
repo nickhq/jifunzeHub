@@ -26,7 +26,7 @@ public class NavigationActivity extends AppCompatActivity
     TextView nav_header_nam, nav_header_emal;
     ImageView nav_header_imag;
     public final static String Message = "com.kvikesh800gmail.relativlayoutjava.MESSAGE";
-    Button btnComputer, c2, c3, c4, c5, btnEnglish, c7, btnMath, c9, c10;
+    Button btnComputer, c2, c3, btnGeneral, btnScience, btnEnglish, c7, btnMath, c9, c10;
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
 
@@ -34,15 +34,15 @@ public class NavigationActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
         //To play background sound
@@ -57,9 +57,9 @@ public class NavigationActivity extends AppCompatActivity
         String nav_header_email = sharedPreferences.getString("email", "abc@gmail.com");
         String nav_header_gender = sharedPreferences.getString("gender", "Male");
         View header = navigationView.getHeaderView(0);//Used to get a reference to navigation header
-        nav_header_nam = (TextView) header.findViewById(R.id.nav_header_name);
-        nav_header_emal = (TextView) header.findViewById(R.id.nav_header_email);
-        nav_header_imag = (ImageView) header.findViewById(R.id.nav_header_image);
+        nav_header_nam = header.findViewById(R.id.nav_header_name);
+        nav_header_emal = header.findViewById(R.id.nav_header_email);
+        nav_header_imag = header.findViewById(R.id.nav_header_image);
         nav_header_nam.setText(nav_header_name);
         nav_header_emal.setText(nav_header_email);
         if (nav_header_gender.equals("Male")) {
@@ -70,8 +70,8 @@ public class NavigationActivity extends AppCompatActivity
         btnComputer = findViewById(R.id.btnComputer);
         c2 = (Button) findViewById(R.id.b2);
         c3 = (Button) findViewById(R.id.b3);
-        c4 = (Button) findViewById(R.id.b4);
-        c5 = (Button) findViewById(R.id.b5);
+        btnGeneral = findViewById(R.id.btnGeneral);
+        btnScience = findViewById(R.id.btnScience);
         btnEnglish =  findViewById(R.id.btnEnglish);
         c7 = (Button) findViewById(R.id.b7);
         btnMath = (Button) findViewById(R.id.btnMath);
@@ -186,7 +186,7 @@ public class NavigationActivity extends AppCompatActivity
         });
 
 
-        c4.setOnClickListener(new View.OnClickListener() {
+        btnGeneral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -211,7 +211,7 @@ public class NavigationActivity extends AppCompatActivity
                         //Intent start to open the navigation drawer activity
                         progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
                         Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
-                        intent.putExtra(Message, "c4");
+                        intent.putExtra(Message, "generalIntent");
                         startActivity(intent);
                     }
                 }, 2000);
@@ -219,7 +219,7 @@ public class NavigationActivity extends AppCompatActivity
         });
 
 
-        c5.setOnClickListener(new View.OnClickListener() {
+        btnScience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -244,7 +244,7 @@ public class NavigationActivity extends AppCompatActivity
                         //Intent start to open the navigation drawer activity
                         progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
                         Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
-                        intent.putExtra(Message, "c5");
+                        intent.putExtra(Message, "scienceIntent");
                         startActivity(intent);
                     }
                 }, 2000);

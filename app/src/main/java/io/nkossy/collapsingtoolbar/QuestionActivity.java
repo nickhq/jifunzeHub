@@ -22,7 +22,9 @@ import java.util.Collections;
 
 import io.nkossy.collapsingtoolbar.data.ComputerDbHelper;
 import io.nkossy.collapsingtoolbar.data.EnglishDbHelper;
+import io.nkossy.collapsingtoolbar.data.GeneralDbHelper;
 import io.nkossy.collapsingtoolbar.data.MathDbHelper;
+import io.nkossy.collapsingtoolbar.data.ScienceDbHelper;
 
 public class QuestionActivity extends AppCompatActivity {
     DonutProgress donutProgress;
@@ -178,6 +180,48 @@ public class QuestionActivity extends AppCompatActivity {
                 }
                 global = math.readAnswer(list.get(j++));
                 break;
+            case "generalIntent":
+                if (populateFields) {
+                    for (int i = 1; i < 25; i++) {
+                        list.add(i);
+                    }
+                    Collections.shuffle(list);
+                    populateFields = false;
+                }
+                GeneralDbHelper general = GeneralDbHelper.getInstance(this);
+                general.open();
+
+                question = general.readQuestion(list.get(j));
+                optionA = general.readOptionA(list.get(j));
+                optionB = general.readOptionB(list.get(j));
+                optionC = general.readOptionC(list.get(j));
+                optionD = general.readOptionD(list.get(j));
+                if (j == list.size() - 2) {
+                    startResult();
+                }
+                global = general.readAnswer(list.get(j++));
+                break;
+            case "scienceIntent":
+                if (populateFields) {
+                    for (int i = 1; i < 30; i++) {
+                        list.add(i);
+                    }
+                    Collections.shuffle(list);
+                    populateFields = false;
+                }
+                ScienceDbHelper science = ScienceDbHelper.getInstance(this);
+                science.open();
+
+                question = science.readQuestion(list.get(j));
+                optionA = science.readOptionA(list.get(j));
+                optionB = science.readOptionB(list.get(j));
+                optionC = science.readOptionC(list.get(j));
+                optionD = science.readOptionD(list.get(j));
+                if (j == list.size() - 2) {
+                    startResult();
+                }
+                global = science.readAnswer(list.get(j++));
+                break;
 
         }
         txtQuestion.setText(question);
@@ -259,6 +303,10 @@ public class QuestionActivity extends AppCompatActivity {
                     saveScore("english", calculateScore(correctQuestions));
                 } else if (get.equals("mathIntent") && getScore("math") < calculateScore(correctQuestions)) {
                     saveScore("math", calculateScore(correctQuestions));
+                } else if (get.equals("generalIntent") && getScore("general") < calculateScore(correctQuestions)) {
+                    saveScore("general", calculateScore(correctQuestions));
+                } else if (get.equals("scienceIntent") && getScore("science") < calculateScore(correctQuestions)) {
+                    saveScore("science", calculateScore(correctQuestions));
                 }
 
                 donutProgress.setProgress(0);
