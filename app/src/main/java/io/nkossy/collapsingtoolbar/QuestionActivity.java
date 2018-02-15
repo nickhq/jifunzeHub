@@ -22,6 +22,7 @@ import java.util.Collections;
 
 import io.nkossy.collapsingtoolbar.data.ComputerDbHelper;
 import io.nkossy.collapsingtoolbar.data.EnglishDbHelper;
+import io.nkossy.collapsingtoolbar.data.MathDbHelper;
 
 public class QuestionActivity extends AppCompatActivity {
     DonutProgress donutProgress;
@@ -151,10 +152,31 @@ public class QuestionActivity extends AppCompatActivity {
                 optionB = english.readOptionB(list.get(j));
                 optionC = english.readOptionC(list.get(j));
                 optionD = english.readOptionD(list.get(j));
-                if(j == list.size() - 2){
+                if (j == list.size() - 2) {
                     startResult();
                 }
                 global = english.readAnswer(list.get(j++));
+                break;
+            case "mathIntent":
+                if (populateFields) {
+                    for (int i = 1; i < 26; i++) {
+                        list.add(i);
+                    }
+                    Collections.shuffle(list);
+                    populateFields = false;
+                }
+                MathDbHelper math = MathDbHelper.getInstance(this);
+                math.open();
+
+                question = math.readQuestion(list.get(j));
+                optionA = math.readOptionA(list.get(j));
+                optionB = math.readOptionB(list.get(j));
+                optionC = math.readOptionC(list.get(j));
+                optionD = math.readOptionD(list.get(j));
+                if (j == list.size() - 2) {
+                    startResult();
+                }
+                global = math.readAnswer(list.get(j++));
                 break;
 
         }
@@ -233,8 +255,10 @@ public class QuestionActivity extends AppCompatActivity {
 
                 if (get.equals("computerIntent") && getScore("computer") < correctQuestions)
                     saveScore("computer", calculateScore(correctQuestions));
-                else if (get.equals("englishIntent") && getScore("english") < calculateScore(correctQuestions)){
+                else if (get.equals("englishIntent") && getScore("english") < calculateScore(correctQuestions)) {
                     saveScore("english", calculateScore(correctQuestions));
+                } else if (get.equals("mathIntent") && getScore("math") < calculateScore(correctQuestions)) {
+                    saveScore("math", calculateScore(correctQuestions));
                 }
 
                 donutProgress.setProgress(0);
@@ -246,7 +270,7 @@ public class QuestionActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void startResult(){
+    private void startResult() {
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
         intent.putExtra("correct", correctQuestions);
         intent.putExtra("attempt", attemptedQuestions);

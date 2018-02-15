@@ -26,7 +26,7 @@ public class NavigationActivity extends AppCompatActivity
     TextView nav_header_nam, nav_header_emal;
     ImageView nav_header_imag;
     public final static String Message = "com.kvikesh800gmail.relativlayoutjava.MESSAGE";
-    Button btnComputer, c2, c3, c4, c5, btnEnglish, c7, c8, c9, c10;
+    Button btnComputer, c2, c3, c4, c5, btnEnglish, c7, btnMath, c9, c10;
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
 
@@ -74,7 +74,7 @@ public class NavigationActivity extends AppCompatActivity
         c5 = (Button) findViewById(R.id.b5);
         btnEnglish =  findViewById(R.id.btnEnglish);
         c7 = (Button) findViewById(R.id.b7);
-        c8 = (Button) findViewById(R.id.btnMath);
+        btnMath = (Button) findViewById(R.id.btnMath);
         c9 = (Button) findViewById(R.id.b9);
         c10 = (Button) findViewById(R.id.b10);
 
@@ -318,7 +318,7 @@ public class NavigationActivity extends AppCompatActivity
         });
 
 
-        c8.setOnClickListener(new View.OnClickListener() {
+        btnMath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -343,7 +343,7 @@ public class NavigationActivity extends AppCompatActivity
                         //Intent start to open the navigation drawer activity
                         progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
                         Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
-                        intent.putExtra(Message, "c8");
+                        intent.putExtra(Message, "mathIntent");
                         startActivity(intent);
                     }
                 }, 2000);
