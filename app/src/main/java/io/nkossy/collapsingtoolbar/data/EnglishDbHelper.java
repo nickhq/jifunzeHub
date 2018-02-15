@@ -12,13 +12,13 @@ import java.util.List;
  * Created by nickhq on 2/15/18
  */
 
-public class ComputerDbHelper {
+public class EnglishDbHelper {
 
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
-    private static ComputerDbHelper instance;
+    private static EnglishDbHelper instance;
 
-    private static final String Table_name = "computer";//name of table
+    private static final String Table_name = "english";//name of table
     private static final String uid = "_id";//name of column1
     private static final String Question = "Question";//name of column2
     private static final String OptionA = "OptionA";//name of column3
@@ -26,9 +26,10 @@ public class ComputerDbHelper {
     private static final String OptionC = "OptionC";//name of column5
     private static final String OptionD = "OptionD";//name of column6
     private static final String Answer = "Answer";//name of column7
-    private static final String DB_NAME = "computer.db";
 
-    public ComputerDbHelper(Context context){
+    private static final String DB_NAME = "english.db";
+
+    private EnglishDbHelper(Context context){
         this.openHelper = new DbAssetsHelper(context, DB_NAME);
     }
 
@@ -38,9 +39,9 @@ public class ComputerDbHelper {
      * @param context the Context
      * @return the instance of ComputerDbHelper
      */
-    public static ComputerDbHelper getInstance(Context context) {
+    public static EnglishDbHelper getInstance(Context context) {
         if (instance == null) {
-            instance = new ComputerDbHelper(context);
+            instance = new EnglishDbHelper(context);
         }
         return instance;
     }
@@ -83,7 +84,7 @@ public class ComputerDbHelper {
         //string that contains the required field  note that Ans is just a local string not related to Answer or Option...
         String Ans;
         //cursor to that query
-        Cursor c = database.rawQuery("SELECT Question FROM computer WHERE _id = " + id + "", null);
+        Cursor c = database.rawQuery("SELECT Question FROM " + Table_name + " WHERE _id = " + id + "", null);
         if (c.moveToFirst())
             Ans = c.getString(0);
         else

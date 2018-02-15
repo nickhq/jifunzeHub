@@ -10,11 +10,11 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DbAssetsHelper extends SQLiteAssetHelper {
 
-    private static final String DATABASE_NAME = "computer.db";
+   // private static final String DATABASE_NAME = "computer.db";
     private static final int DATABASE_VERSION = 1;
 
 
-    public DbAssetsHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public DbAssetsHelper(Context context, String dbName) {
+        super(context, dbName, null, DATABASE_VERSION);
     }
 }

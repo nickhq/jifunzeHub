@@ -21,17 +21,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import io.nkossy.collapsingtoolbar.data.ComputerDbHelper;
+import io.nkossy.collapsingtoolbar.data.EnglishDbHelper;
 
 public class QuestionActivity extends AppCompatActivity {
     DonutProgress donutProgress;
-    int variable = 0;
+    boolean killActivity = true;
     TextView txtQuestion;
     Button btnOptA, btnOptB, btnOptC, btnOptD;
     Button playButton;
     String get;
 
     int visibility = 0;
-    int computerIntent = 0;
+    boolean populateFields = true;
     int attemptedQuestions = 0;
     int correctQuestions = 0;
     int j = 0;
@@ -117,12 +118,12 @@ public class QuestionActivity extends AppCompatActivity {
         switch (get) {
             case "computerIntent":
 
-                if (computerIntent == 0) {
+                if (populateFields) {
                     for (int i = 1; i < 90; i++) {
                         list.add(i);
                     }
                     Collections.shuffle(list);
-                    computerIntent = 1;
+                    populateFields = false;
                 }
                 ComputerDbHelper computer = ComputerDbHelper.getInstance(this);
                 computer.open();
@@ -134,8 +135,30 @@ public class QuestionActivity extends AppCompatActivity {
                 optionD = computer.readOptionD(list.get(j));
                 global = computer.readAnswer(list.get(j++));
                 break;
+            case "englishIntent":
+                if (populateFields) {
+                    for (int i = 1; i < 27; i++) {
+                        list.add(i);
+                    }
+                    Collections.shuffle(list);
+                    populateFields = false;
+                }
+                EnglishDbHelper english = EnglishDbHelper.getInstance(this);
+                english.open();
+
+                question = english.readQuestion(list.get(j));
+                optionA = english.readOptionA(list.get(j));
+                optionB = english.readOptionB(list.get(j));
+                optionC = english.readOptionC(list.get(j));
+                optionD = english.readOptionD(list.get(j));
+                if(j == list.size() - 2){
+                    startResult();
+                }
+                global = english.readAnswer(list.get(j++));
+                break;
+
         }
-        txtQuestion.setText(String.format("%s", question));
+        txtQuestion.setText(question);
         btnOptA.setText(optionA);
         btnOptB.setText(optionB);
         btnOptC.setText(optionC);
@@ -210,17 +233,24 @@ public class QuestionActivity extends AppCompatActivity {
 
                 if (get.equals("computerIntent") && getScore("computer") < correctQuestions)
                     saveScore("computer", calculateScore(correctQuestions));
+                else if (get.equals("englishIntent") && getScore("english") < calculateScore(correctQuestions)){
+                    saveScore("english", calculateScore(correctQuestions));
+                }
 
                 donutProgress.setProgress(0);
-                if (variable == 0) {
-                    Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
-                    intent.putExtra("correct", correctQuestions);
-                    intent.putExtra("attemp", attemptedQuestions);
-                    startActivity(intent);
+                if (killActivity) {
+                    startResult();
                     finish();
                 }
             }
         }.start();
+    }
+
+    private void startResult(){
+        Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
+        intent.putExtra("correct", correctQuestions);
+        intent.putExtra("attempt", attemptedQuestions);
+        startActivity(intent);
     }
 
     private void saveScore(String name, int value) {
@@ -244,7 +274,7 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        variable = 1;
+        killActivity = false;
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
         if (sp.getInt("Sound", 0) == 0)
             mediaPlayer.pause();
@@ -253,7 +283,7 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        variable = 1;
+        killActivity = false;
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
         if (sp.getInt("Sound", 0) == 0)
             mediaPlayer.start();
@@ -262,7 +292,7 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        variable = 1;
+        killActivity = false;
         finish();
     }
 

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -27,7 +26,7 @@ public class NavigationActivity extends AppCompatActivity
     TextView nav_header_nam, nav_header_emal;
     ImageView nav_header_imag;
     public final static String Message = "com.kvikesh800gmail.relativlayoutjava.MESSAGE";
-    Button c1, c2, c3, c4, c5, c6, c7, c8, c9, c10;
+    Button btnComputer, c2, c3, c4, c5, btnEnglish, c7, c8, c9, c10;
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
 
@@ -68,19 +67,19 @@ public class NavigationActivity extends AppCompatActivity
         } else {
             nav_header_imag.setImageResource(R.drawable.female);
         }
-        c1 = (Button) findViewById(R.id.b1);
+        btnComputer = findViewById(R.id.btnComputer);
         c2 = (Button) findViewById(R.id.b2);
         c3 = (Button) findViewById(R.id.b3);
         c4 = (Button) findViewById(R.id.b4);
         c5 = (Button) findViewById(R.id.b5);
-        c6 = (Button) findViewById(R.id.b6);
+        btnEnglish =  findViewById(R.id.btnEnglish);
         c7 = (Button) findViewById(R.id.b7);
-        c8 = (Button) findViewById(R.id.b8);
+        c8 = (Button) findViewById(R.id.btnMath);
         c9 = (Button) findViewById(R.id.b9);
         c10 = (Button) findViewById(R.id.b10);
 
 
-        c1.setOnClickListener(new View.OnClickListener() {
+        btnComputer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -92,13 +91,20 @@ public class NavigationActivity extends AppCompatActivity
                 }, 400);
 
 
-                progressBar = new ProgressDialog(v.getContext());//Create new object of progress bar type
-                progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any wher on screen
-                progressBar.setMessage("Getting QuestionActivity Ready ...");//Title shown in the progress bar
-                progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
-                progressBar.setProgress(0);//attributes
-                progressBar.setMax(100);//attributes
-                progressBar.show();//show the progress bar
+                //Create new object of progress bar type
+                progressBar = new ProgressDialog(v.getContext());
+                //Progress bar cannot be cancelled by pressing any wher on screen
+                progressBar.setCancelable(false);
+                //Title shown in the progress bar
+                progressBar.setMessage("Getting QuestionActivity Ready ...");
+                //Style of the progress bar
+                progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                //attributes
+                progressBar.setProgress(0);
+                //attributes
+                progressBar.setMax(100);
+                //show the progress bar
+                progressBar.show();
                 //This handler will add a delay of 3 seconds
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -246,7 +252,7 @@ public class NavigationActivity extends AppCompatActivity
         });
 
 
-        c6.setOnClickListener(new View.OnClickListener() {
+        btnEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -271,7 +277,7 @@ public class NavigationActivity extends AppCompatActivity
                         //Intent start to open the navigation drawer activity
                         progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
                         Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
-                        intent.putExtra(Message, "c6");
+                        intent.putExtra(Message, "englishIntent");
                         startActivity(intent);
                     }
                 }, 2000);
