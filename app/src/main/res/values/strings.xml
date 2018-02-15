@@ -18,4 +18,23 @@
     <string name="business_desc">Combines the elements of accountancy, finance, marketing, organizational studies and economics.</string>
     <string name="add_subject">Add Subject</string>
     <string name="add_a_new_subject">Add a New Subject</string>
+
+
+    <!--QUIZ-->
+
+    <string name="toast_message">"1.   Enter your name  for the Quiz.
+
+ 2.   Enter your valid mail address.
+        eg:   abc@xyz.com
+
+ 3.   Now set your password for
+        security  purpose
+
+              Enjoy the App!!  ☺</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
