@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar;
+package io.nkossy.jifunzeHub;
 
 import org.junit.Test;
 

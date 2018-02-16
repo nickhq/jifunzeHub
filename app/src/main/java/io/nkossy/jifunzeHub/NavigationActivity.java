@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar;
+package io.nkossy.jifunzeHub;
 
 
 import android.app.AlertDialog;
@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import io.nkossy.collapsingtoolbar.FlashCards.FlashCardsActivity;
+import io.nkossy.jifunzeHub.FlashCards.FlashCardsActivity;
 
 
 public class NavigationActivity extends AppCompatActivity

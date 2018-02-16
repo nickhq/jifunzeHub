@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar.data;
+package io.nkossy.jifunzeHub.data;
 
 import android.content.Context;
 

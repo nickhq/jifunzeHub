@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar.FlashCards;
+package io.nkossy.jifunzeHub.FlashCards;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,8 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import io.nkossy.collapsingtoolbar.NavigationActivity;
-import io.nkossy.collapsingtoolbar.R;
+import io.nkossy.jifunzeHub.NavigationActivity;
+import io.nkossy.jifunzeHub.R;
 
 public class FlashCardsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

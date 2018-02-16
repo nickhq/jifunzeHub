@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar;
+package io.nkossy.jifunzeHub;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,11 +20,11 @@ import com.github.lzyzsd.circleprogress.DonutProgress;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import io.nkossy.collapsingtoolbar.data.ComputerDbHelper;
-import io.nkossy.collapsingtoolbar.data.EnglishDbHelper;
-import io.nkossy.collapsingtoolbar.data.GeneralDbHelper;
-import io.nkossy.collapsingtoolbar.data.MathDbHelper;
-import io.nkossy.collapsingtoolbar.data.ScienceDbHelper;
+import io.nkossy.jifunzeHub.data.ComputerDbHelper;
+import io.nkossy.jifunzeHub.data.EnglishDbHelper;
+import io.nkossy.jifunzeHub.data.GeneralDbHelper;
+import io.nkossy.jifunzeHub.data.MathDbHelper;
+import io.nkossy.jifunzeHub.data.ScienceDbHelper;
 
 public class QuestionActivity extends AppCompatActivity {
     DonutProgress donutProgress;

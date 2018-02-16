@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.nkossy.collapsingtoolbar">
+    package="io.nkossy.jifunzeHub">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FlashCards.FlashCardsActivity" />
-        <activity android:name=".FlashCards.BiologyFlashCardActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="io.nkossy.jifunzeHub.FlashCards.FlashCardsActivity" />
+        <activity android:name="io.nkossy.jifunzeHub.FlashCards.BiologyFlashCardActivity" />
+        <activity android:name="io.nkossy.jifunzeHub.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,11 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NavigationActivity"
+            android:name="io.nkossy.jifunzeHub.NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name="io.nkossy.jifunzeHub.QuestionActivity" />
+        <activity android:name="io.nkossy.jifunzeHub.ResultActivity"/>
     </application>
 
 </manifest>

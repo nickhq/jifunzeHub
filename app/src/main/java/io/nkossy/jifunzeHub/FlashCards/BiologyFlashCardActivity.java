@@ -1,4 +1,4 @@
-package io.nkossy.collapsingtoolbar.FlashCards;
+package io.nkossy.jifunzeHub.FlashCards;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 
-import io.nkossy.collapsingtoolbar.R;
+import io.nkossy.jifunzeHub.R;
 
 public class BiologyFlashCardActivity extends AppCompatActivity {
 
