@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //To play background sound
         if (sp.getInt("Sound", 0) == 0) {
             mediaPlayer = MediaPlayer.create(this, R.raw.abc);
-            mediaPlayer.start();
+           // mediaPlayer.start();
             mediaPlayer.setLooping(true);
         }
         if (name_file.equals(Default) || pass_file.equals(Default) || email_file.equals(Default) || gender_file.equals(Default)) {
@@ -352,7 +352,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0)
-            mediaPlayer.start();
+        if (sp.getInt("Sound", 0) == 0);
+          //  mediaPlayer.start();
     }
 }

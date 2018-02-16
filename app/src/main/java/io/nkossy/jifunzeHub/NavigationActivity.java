@@ -61,7 +61,7 @@ public class NavigationActivity extends AppCompatActivity
         //To play background sound
         if (sp.getInt("Sound", 0) == 0) {
             mediaPlayer = MediaPlayer.create(this, R.raw.abc);
-            mediaPlayer.start();
+           // mediaPlayer.start();
             mediaPlayer.setLooping(true);
         }
 
@@ -251,8 +251,8 @@ public class NavigationActivity extends AppCompatActivity
     protected void onRestart() {
         super.onRestart();
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0)
-            mediaPlayer.start();
+        if (sp.getInt("Sound", 0) == 0);
+            //mediaPlayer.start();
     }
 
 }
