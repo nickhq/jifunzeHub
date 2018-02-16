@@ -42,4 +42,10 @@
     <string name="result_above_average">You are an above average Quizzer</string>
     <string name="result_good">You are a brilliant  Quizzer</string>
     <string name="form">Score  :    %d</string>
+
+    <string name="quiz_title">Quiz\'s</string>
+    <string name="quiz_description">Take a test, Select Subject?</string>
+
+    <string name="flash_card_title">Flash Cards</string>
+    <string name="flash_card_description">Add, Review, Revise</string>
 </resources>

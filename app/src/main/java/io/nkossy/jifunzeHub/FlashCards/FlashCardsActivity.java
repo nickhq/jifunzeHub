@@ -31,7 +31,8 @@ public class FlashCardsActivity extends AppCompatActivity implements NavigationV
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        toolbar.setTitle(R.string.flash_card_title);
+        toolbar.setSubtitle(R.string.flash_card_description);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

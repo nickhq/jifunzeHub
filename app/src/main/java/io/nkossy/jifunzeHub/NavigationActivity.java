@@ -45,6 +45,9 @@ public class NavigationActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        toolbar.setTitle(R.string.quiz_title);
+        toolbar.setSubtitle(R.string.quiz_description);
         SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
