@@ -1,8 +1,10 @@
 package io.nkossy.jifunzeHub.FlashCards;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -14,6 +16,8 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import io.nkossy.jifunzeHub.NavigationActivity;
@@ -41,6 +45,25 @@ public class FlashCardsActivity extends AppCompatActivity implements NavigationV
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //get from shared prefs and set nav header params
+        SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);
+        String nav_header_name = sharedPreferences.getString("name", "xyz");
+        String nav_header_email = sharedPreferences.getString("email", "example@mail.com");
+        String nav_header_gender = sharedPreferences.getString("gender", "Male");
+
+        //Used to get a reference to navigation header
+        View header = navigationView.getHeaderView(0);
+        TextView navHeaderName = header.findViewById(R.id.nav_header_name);
+        TextView navHeaderEmail = header.findViewById(R.id.nav_header_email);
+        ImageView navHeaderImage = header.findViewById(R.id.nav_header_image);
+        navHeaderName.setText(nav_header_name);
+        navHeaderEmail.setText(nav_header_email);
+        if (nav_header_gender.equals("Male")) {
+            navHeaderImage.setImageResource(R.drawable.male);
+        } else {
+            navHeaderImage.setImageResource(R.drawable.female);
+        }
 
         CardView cardBiology = findViewById(R.id.card_biology);
         CardView cardChemistry = findViewById(R.id.card_chemistry);
