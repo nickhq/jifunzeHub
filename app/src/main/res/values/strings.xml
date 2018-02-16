@@ -37,4 +37,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="result_low">You Need Improvement</string>
+    <string name="result_average">You are an average Quizzer</string>
+    <string name="result_above_average">You are an above average Quizzer</string>
+    <string name="result_good">You are a brilliant  Quizzer</string>
+    <string name="form">Score  :    %d</string>
 </resources>
