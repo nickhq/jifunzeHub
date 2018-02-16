@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FlashCards$FlashCardsActivity" />
-        <activity android:name=".FlashCards$BiologyFlashCardActivity" />
+        <activity android:name=".FlashCards.FlashCardsActivity" />
+        <activity android:name=".FlashCards.BiologyFlashCardActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

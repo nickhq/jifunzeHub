@@ -3,12 +3,20 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_scorecard"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Scorecard" />
+            android:id="@+id/nav_flash_cards"
+            android:icon="@drawable/ic_playlist_add_check_24dp"
+            android:title="Flash Cards" />
         <item
-            android:id="@+id/nav_Setting"
-            android:icon="@drawable/ic_menu_send"
+            android:id="@+id/nav_quiz"
+            android:icon="@drawable/ic_help_24dp"
+            android:title="Quiz" />
+        <item
+            android:id="@+id/nav_leader_board"
+            android:icon="@drawable/ic_equalizer_24dp"
+            android:title="Leaders board" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_24dp"
             android:title="Settings" />
     </group>
 
@@ -16,21 +24,21 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_share_24dp"
                 android:title="Share" />
 
             <item
                 android:id="@+id/nav_feedback"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_mail_24dp"
                 android:title="Feedback" />
             <item
-                android:id="@+id/nav_Help"
-                android:icon="@drawable/ic_email"
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_help_24dp"
                 android:title="Help" />
             <item
-                android:id="@+id/nav_aboutus"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Visit Developer" />
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_info_24dp"
+                android:title="About Us" />
         </menu>
     </item>
 

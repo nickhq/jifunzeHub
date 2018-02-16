@@ -1,13 +1,16 @@
 package io.nkossy.collapsingtoolbar;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -21,15 +24,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.nkossy.collapsingtoolbar.FlashCards.FlashCardsActivity;
+
+
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView nav_header_nam, nav_header_emal;
-    ImageView nav_header_imag;
+    TextView navHeaderName, navHeaderEmail;
+    ImageView navHeaderImage;
     public final static String Message = "com.kvikesh800gmail.relativlayoutjava.MESSAGE";
     Button btnComputer, btnGeneral, btnScience, btnEnglish, btnMath, btnMore;
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +46,11 @@ public class NavigationActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -58,15 +67,15 @@ public class NavigationActivity extends AppCompatActivity
         String nav_header_email = sharedPreferences.getString("email", "abc@gmail.com");
         String nav_header_gender = sharedPreferences.getString("gender", "Male");
         View header = navigationView.getHeaderView(0);//Used to get a reference to navigation header
-        nav_header_nam = header.findViewById(R.id.nav_header_name);
-        nav_header_emal = header.findViewById(R.id.nav_header_email);
-        nav_header_imag = header.findViewById(R.id.nav_header_image);
-        nav_header_nam.setText(nav_header_name);
-        nav_header_emal.setText(nav_header_email);
+        navHeaderName = header.findViewById(R.id.nav_header_name);
+        navHeaderEmail = header.findViewById(R.id.nav_header_email);
+        navHeaderImage = header.findViewById(R.id.nav_header_image);
+        navHeaderName.setText(nav_header_name);
+        navHeaderEmail.setText(nav_header_email);
         if (nav_header_gender.equals("Male")) {
-            nav_header_imag.setImageResource(R.drawable.man);
+            navHeaderImage.setImageResource(R.drawable.man);
         } else {
-            nav_header_imag.setImageResource(R.drawable.female);
+            navHeaderImage.setImageResource(R.drawable.female);
         }
         btnComputer = findViewById(R.id.btnComputer);
 
@@ -172,62 +181,58 @@ public class NavigationActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        /*if (id == R.id.nav_scorecard) {
-            Intent intent = new Intent(this, ScoreCard.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_Setting) {
-              *//*  startActivity(new Intent(this,Setting.class));*//*
-            startActivity(new Intent(this, Setting_activity.class));
-
-        } else if (id == R.id.nav_share) {
-            //shareApplication();
-            Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-            intent.setData(Uri.parse("mailto:"));
-            intent.setType("message/rfc822");
-            intent.putExtra(Intent.EXTRA_SUBJECT, "QuizBook");
-            System.out.println("" + R.string.email_content);
-            intent.putExtra(Intent.EXTRA_TEXT, "" + getText(R.string.email_content) + getText(R.string.link) + getText(R.string.last_content));
-            Intent chooser = Intent.createChooser(intent, "Share using");
-            startActivity(chooser);
-
-
-        } else if (id == R.id.nav_feedback) {
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setData(Uri.parse("mailto:"));
-            String[] recipents = {"kvikesh800@gmail.com"};
-            intent.setType("message/rfc822");
-            intent.putExtra(Intent.EXTRA_EMAIL, recipents);
-            intent.putExtra(Intent.EXTRA_SUBJECT, "QuizBook Reviews");
-            Intent chooser = Intent.createChooser(intent, "Send Feedback Via");
-            startActivity(chooser);
-
-        } else if (id == R.id.nav_Help) {
-            Intent i = new Intent(this, Help.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_aboutus) {
-            Intent i = new Intent(this, AboutUs.class);
-            startActivity(i);
+        switch (id) {
+            case R.id.nav_flash_cards:
+                startActivity(new Intent(this, FlashCardsActivity.class));
+                break;
+            case R.id.nav_quiz:
+                Toast.makeText(this, "You are here", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_leader_board:
+                Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_setting:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_share:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_feedback:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_help:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_about:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                        .setTitle("About Developers")
+                        .setMessage("We Students Building Android Apps for Students")
+                        .setIcon(R.drawable.ic_info_24dp)
+                        .setCancelable(true)
+                        .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // leave this empty
+                            }
+                        });
+                builder.show();
+                break;
         }
-*/
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
