@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main_second);
             icon_user = (ImageView) findViewById(R.id.image_icon);
             if (gender_file.equals("Male")) {
-                icon_user.setImageResource(R.drawable.man);
+                icon_user.setImageResource(R.drawable.male);
             } else {
                 icon_user.setImageResource(R.drawable.female);
             }

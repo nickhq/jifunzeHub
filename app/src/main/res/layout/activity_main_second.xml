@@ -115,7 +115,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="?attr/actionBarItemBackground"
-        android:drawableLeft="@drawable/help"
+        android:drawableLeft="@drawable/ic_help_24dp"
         android:onClick="showHelp"
         android:text="Help"
         android:textAllCaps="false"

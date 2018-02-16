@@ -73,7 +73,7 @@ public class NavigationActivity extends AppCompatActivity
         navHeaderName.setText(nav_header_name);
         navHeaderEmail.setText(nav_header_email);
         if (nav_header_gender.equals("Male")) {
-            navHeaderImage.setImageResource(R.drawable.man);
+            navHeaderImage.setImageResource(R.drawable.male);
         } else {
             navHeaderImage.setImageResource(R.drawable.female);
         }

@@ -60,7 +60,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/ic_email"
+        android:drawableLeft="@drawable/ic_mail_24dp"
         android:drawablePadding="15dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -123,7 +123,7 @@
         android:textAllCaps="false"
         android:textColor="#fff"
         android:onClick="showHelp"
-        android:drawableLeft="@drawable/help"
+        android:drawableLeft="@drawable/ic_help_24dp"
         android:background="?attr/actionBarItemBackground"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
