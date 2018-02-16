@@ -18,25 +18,31 @@
         android:orientation="horizontal"
         android:layout_margin="16dp">
 
-        <Button
-            android:id="@+id/previous"
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Previous"/>
-        <Button
-            android:id="@+id/cancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Cancel"/>
+            android:textAlignment="center"
+            android:text="TIP: Swipe right or Left for the next Card"/>
 
-        <Button
-            android:id="@+id/next"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Next"/>
+        <!--<Button-->
+            <!--android:id="@+id/previous"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Previous"/>-->
+        <!--<Button-->
+            <!--android:id="@+id/cancel"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Cancel"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/next"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Next"/>-->
     </LinearLayout>
 
 </LinearLayout>

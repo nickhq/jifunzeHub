@@ -16,7 +16,7 @@ public class BiologyFlashCardActivity extends AppCompatActivity {
 
     ArrayList<FlashCard> al;
     FlashCardAdapter adapter;
-    int i = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,6 @@ public class BiologyFlashCardActivity extends AppCompatActivity {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
-                Log.d("The End", "You have reached the end of your cards");
                 al.remove(0);
                 adapter.notifyDataSetChanged();
             }
@@ -55,21 +54,21 @@ public class BiologyFlashCardActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
-                Toast.makeText(BiologyFlashCardActivity.this, "Left!", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(BiologyFlashCardActivity.this, "Left!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Toast.makeText(BiologyFlashCardActivity.this, "Right!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(BiologyFlashCardActivity.this, "Right!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add(new FlashCard("Title " + String.valueOf(i), ""));
+                al.add(new FlashCard("The End", "You Have Reached The End"));
                 adapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
-                i++;
+
             }
 
             @Override

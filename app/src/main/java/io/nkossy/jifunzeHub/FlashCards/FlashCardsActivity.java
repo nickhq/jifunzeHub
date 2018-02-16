@@ -19,7 +19,8 @@ import android.widget.Toast;
 import io.nkossy.jifunzeHub.NavigationActivity;
 import io.nkossy.jifunzeHub.R;
 
-public class FlashCardsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class FlashCardsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        View.OnClickListener {
 
     private DrawerLayout mDrawerLayout;
 
@@ -42,13 +43,17 @@ public class FlashCardsActivity extends AppCompatActivity implements NavigationV
         navigationView.setNavigationItemSelectedListener(this);
 
         CardView cardBiology = findViewById(R.id.card_biology);
+        CardView cardChemistry = findViewById(R.id.card_chemistry);
+        CardView cardComputer = findViewById(R.id.card_computer);
+        CardView cardBusiness = findViewById(R.id.card_business);
+        CardView addSubject = findViewById(R.id.card_add);
 
-        cardBiology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), BiologyFlashCardActivity.class));
-            }
-        });
+
+        cardBiology.setOnClickListener(this);
+        cardChemistry.setOnClickListener(this);
+        cardComputer.setOnClickListener(this);
+        cardBusiness.setOnClickListener(this);
+        addSubject.setOnClickListener(this);
     }
 
     @Override
@@ -95,5 +100,17 @@ public class FlashCardsActivity extends AppCompatActivity implements NavigationV
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.card_biology:
+                startActivity(new Intent(getBaseContext(), BiologyFlashCardActivity.class));
+                break;
+            default:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
