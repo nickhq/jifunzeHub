@@ -27,6 +27,12 @@ import static io.nkossy.jifunzeHub.Quiz.QuizActivity.INTENT_ENGLISH;
 import static io.nkossy.jifunzeHub.Quiz.QuizActivity.INTENT_MATH;
 
 public class QuestionActivity extends AppCompatActivity {
+
+    public static final String KEY_MATH = "math";
+    public static final String KEY_ENGLISH = "english";
+    public static final String KEY_COMPUTER = "computer";
+
+
     DonutProgress donutProgress;
     boolean killActivity = true;
     TextView txtQuestion;
@@ -251,12 +257,12 @@ public class QuestionActivity extends AppCompatActivity {
                 // and it is saved in shared preference file that is defined in
                 // onCreate method as txtScore
 
-                if (get.equals(INTENT_COMPUTER) && getScore("computer") < correctQuestions)
-                    saveScore("computer", calculateScore(correctQuestions));
-                else if (get.equals(INTENT_ENGLISH) && getScore("english") < calculateScore(correctQuestions)) {
-                    saveScore("english", calculateScore(correctQuestions));
-                } else if (get.equals(INTENT_MATH) && getScore("math") < calculateScore(correctQuestions)) {
-                    saveScore("math", calculateScore(correctQuestions));
+                if (get.equals(INTENT_COMPUTER) && getScore(KEY_COMPUTER) < correctQuestions)
+                    saveScore(KEY_COMPUTER, calculateScore(correctQuestions));
+                else if (get.equals(INTENT_ENGLISH) && getScore(KEY_ENGLISH) < calculateScore(correctQuestions)) {
+                    saveScore(KEY_ENGLISH, calculateScore(correctQuestions));
+                } else if (get.equals(INTENT_MATH) && getScore(KEY_MATH) < calculateScore(correctQuestions)) {
+                    saveScore(KEY_MATH, calculateScore(correctQuestions));
                 }
 
                 donutProgress.setProgress(0);
