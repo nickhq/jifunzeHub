@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import io.nkossy.jifunzeHub.R;
-import io.nkossy.jifunzeHub.data.ComputerDbHelper;
 import io.nkossy.jifunzeHub.data.EnglishDbHelper;
 import io.nkossy.jifunzeHub.data.GeneralDbHelper;
 import io.nkossy.jifunzeHub.data.MathDbHelper;
 import io.nkossy.jifunzeHub.data.ScienceDbHelper;
+import io.nkossy.jifunzeHub.data.SubjectDb;
 
 public class QuestionActivity extends AppCompatActivity {
     DonutProgress donutProgress;
@@ -129,7 +129,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                ComputerDbHelper computer = ComputerDbHelper.getInstance(this);
+                SubjectDb computer = SubjectDb.getInstance(this, "computer.db", "computer");
                 computer.open();
 
                 question = computer.readQuestion(list.get(j));

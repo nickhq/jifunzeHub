@@ -18,12 +18,12 @@ public class SubjectDb {
 
     // columns of the various subjects table
     private static final String COL_ID = "_id";
-    private static final String COL_QUESTION = "COL_QUESTION";
-    private static final String COL_OPTION_A = "COL_OPTION_A";
-    private static final String COL_OPTION_B = "COL_OPTION_B";
-    private static final String COL_OPTION_C = "COL_OPTION_C";
-    private static final String COL_OPTION_D = "COL_OPTION_D";
-    private static final String COL_ANSWER = "COL_ANSWER";
+    private static final String COL_QUESTION = "Question";
+    private static final String COL_OPTION_A = "OptionA";
+    private static final String COL_OPTION_B = "OptionB";
+    private static final String COL_OPTION_C = "OptionC";
+    private static final String COL_OPTION_D = "OptionD";
+    private static final String COL_ANSWER = "Answer";
 
 
     private String tableName;
