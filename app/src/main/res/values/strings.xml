@@ -16,9 +16,42 @@
     <string name="business">Business Studies</string>
     <string name="business_class">Business Studies - Give Money</string>
     <string name="business_desc">Combines the elements of accountancy, finance, marketing, organizational studies and economics.</string>
+
+
+    <string name="math">Mathematics</string>
+    <string name="math_class">Mathematics</string>
+    <string name="math_desc">Mathematics</string>
+
+    <string name="english">English</string>
+    <string name="english_class">English</string>
+    <string name="english_desc">English</string>
+
+    <string name="swahili">Kiswahili</string>
+    <string name="swahili_class">Kiswahili</string>
+    <string name="swahili_desc">Kiswahili</string>
+
+    <string name="physics">Physics</string>
+    <string name="physics_class">Physics</string>
+    <string name="physics_desc">Physics</string>
+
+    <string name="agriculture">Agriculture</string>
+    <string name="agriculture_class">Agriculture</string>
+    <string name="agriculture_desc">Agriculture</string>
+
+    <string name="cre">Cristian Religious Education</string>
+    <string name="cre_class">Cristian Religious Education</string>
+    <string name="cre_desc">Cristian Religious Education</string>
+
+    <string name="history">History</string>
+    <string name="history_class">History</string>
+    <string name="history_desc">History</string>
+
+    <string name="geography">Geography</string>
+    <string name="geography_class">Geography</string>
+    <string name="geography_desc">Geography</string>
+
     <string name="add_subject">Add Subject</string>
     <string name="add_a_new_subject">Add a New Subject</string>
-
 
     <!--QUIZ-->
 
@@ -51,7 +84,6 @@
     <string name="question_start">Start</string>
     <string name="app_icon">App Icon</string>
     <string name="user_welcome">Welcome !</string>
-    <string name="user_hint_password">Password</string>
     <string name="user_pass_show">SHOW</string>
     <string name="user_forgot_password">Forgot Password !!</string>
     <string name="user_continue">Continue</string>

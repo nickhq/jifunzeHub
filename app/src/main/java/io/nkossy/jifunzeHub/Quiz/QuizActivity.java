@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import io.nkossy.jifunzeHub.BaseActivity;
 import io.nkossy.jifunzeHub.R;
@@ -24,6 +24,8 @@ public class QuizActivity extends BaseActivity {
 
     public final static String MESSAGE_INTENT_EXTRA = "io.nkossy.jiFunzeHub.MESSAGE";
     Button btnComputer, btnGeneral, btnScience, btnEnglish, btnMath, btnMore;
+    CardView cardBiology;
+    CardView cardComputer;
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
 
@@ -59,16 +61,33 @@ public class QuizActivity extends BaseActivity {
         }
 
 
-        btnComputer = findViewById(R.id.btnComputer);
+        cardBiology = findViewById(R.id.quiz_card_biology);
+        cardComputer = findViewById(R.id.quiz_card_computer);
 
+        cardBiology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setAndShowProgressBar();
+                launchQuizActivity("scienceIntent");
+            }
+        });
+        cardComputer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setAndShowProgressBar();
+                launchQuizActivity("computerIntent");
+            }
+        });
+        /*
+        btnComputer = findViewById(R.id.btnComputer);
         btnMore = findViewById(R.id.btnMore);
         btnGeneral = findViewById(R.id.btnGeneral);
         btnScience = findViewById(R.id.btnScience);
         btnEnglish = findViewById(R.id.btnEnglish);
-        btnMath = findViewById(R.id.btnMath);
+        btnMath = findViewById(R.id.btnMath);*/
 
 
-        btnComputer.setOnClickListener(new View.OnClickListener() {
+      /*  btnComputer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -132,7 +151,7 @@ public class QuizActivity extends BaseActivity {
                 Toast.makeText(QuizActivity.this, "We are working on ability to add more", Toast.LENGTH_LONG).show();
             }
         });
-
+        */
 
     }
 
