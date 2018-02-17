@@ -44,17 +44,17 @@ public class BaseActivity extends AppCompatActivity
         super.onStart();
 
 
-        String nav_header_name = mUserPrefInfo.getString("name", "xyz");
-        String nav_header_email = mUserPrefInfo.getString("email", "abc@gmail.com");
-        String nav_header_gender = mUserPrefInfo.getString("gender", "Male");
-        //Used to get a reference to navigation header
+        String userName = mUserPrefInfo.getString("name", "Your Name");
+        String userEmail = mUserPrefInfo.getString("email", "youremail@domain.com");
+        String userGender = mUserPrefInfo.getString("gender", "Male");
+        //get a reference to navigation header
         View header = mNavigationView.getHeaderView(0);
         navHeaderName = header.findViewById(R.id.nav_header_name);
         navHeaderEmail = header.findViewById(R.id.nav_header_email);
         navHeaderImage = header.findViewById(R.id.nav_header_image);
-        navHeaderName.setText(nav_header_name);
-        navHeaderEmail.setText(nav_header_email);
-        if (nav_header_gender.equals("Male")) {
+        navHeaderName.setText(userName);
+        navHeaderEmail.setText(userEmail);
+        if (userGender.equals("Male")) {
             navHeaderImage.setImageResource(R.drawable.male);
         } else {
             navHeaderImage.setImageResource(R.drawable.female);

@@ -12,19 +12,21 @@
         <activity android:name=".FlashCards.FlashCardsActivity" />
         <activity android:name=".FlashCards.BiologyFlashCardActivity" />
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme" />
         <activity android:name=".QuestionActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".BaseActivity"/>
     </application>
 
 </manifest>
