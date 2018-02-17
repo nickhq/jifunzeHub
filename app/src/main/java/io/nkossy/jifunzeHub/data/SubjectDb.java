@@ -29,7 +29,7 @@ public class SubjectDb {
     private String tableName;
 
 
-    private SubjectDb(Context context, String dbName, String tableName) {
+    public SubjectDb(Context context, String dbName, String tableName) {
         this.tableName = tableName;
         this.openHelper = new DbAssetsHelper(context, dbName);
     }
@@ -40,12 +40,12 @@ public class SubjectDb {
      * @param context the Context
      * @return the instance of SubjectDb
      */
-    public static SubjectDb getInstance(Context context, String dbName, String tableName) {
+   /* public static SubjectDb getInstance(Context context, String dbName, String tableName) {
         if (instance == null) {
             instance = new SubjectDb(context, dbName, tableName);
         }
         return instance;
-    }
+    }*/
 
     /**
      * Open the database connection.

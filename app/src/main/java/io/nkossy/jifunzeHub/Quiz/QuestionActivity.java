@@ -77,7 +77,7 @@ public class QuestionActivity extends AppCompatActivity {
         //To play background sound
         if (sp.getInt("Sound", 0) == 0) {
             mediaPlayer = MediaPlayer.create(this, R.raw.abc);
-           // mediaPlayer.start();
+            // mediaPlayer.start();
             mediaPlayer.setLooping(true);
         }
 
@@ -125,7 +125,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                SubjectDb computer = SubjectDb.getInstance(this, "computer.db", "computer");
+                SubjectDb computer = new SubjectDb(this, "computer.db", "computer");
                 computer.open();
 
                 question = computer.readQuestion(list.get(j));
@@ -145,7 +145,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                SubjectDb english = SubjectDb.getInstance(this, "english.db", "english");
+                SubjectDb english = new SubjectDb(this, "english.db", "english");
                 english.open();
 
                 question = english.readQuestion(list.get(j));
@@ -168,7 +168,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                SubjectDb math = SubjectDb.getInstance(this, "maths.db", "maths");
+                SubjectDb math = new SubjectDb(this, "maths.db", "maths");
                 math.open();
 
                 question = math.readQuestion(list.get(j));
@@ -190,7 +190,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                SubjectDb general = SubjectDb.getInstance(this, "general.db", "general");
+                SubjectDb general = new SubjectDb(this, "general.db", "general");
                 general.open();
 
                 question = general.readQuestion(list.get(j));
@@ -212,7 +212,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                SubjectDb science = SubjectDb.getInstance(this, "science.db", "science");
+                SubjectDb science = new SubjectDb(this, "science.db", "science");
                 science.open();
 
                 question = science.readQuestion(list.get(j));
@@ -361,8 +361,8 @@ public class QuestionActivity extends AppCompatActivity {
         super.onRestart();
         killActivity = false;
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0);
-           // mediaPlayer.start();
+        if (sp.getInt("Sound", 0) == 0) ;
+        // mediaPlayer.start();
     }
 
     @Override
