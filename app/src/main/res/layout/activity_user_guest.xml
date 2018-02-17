@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="io.nkossy.jifunzeHub.UserActivity">
+    tools:context=".UserActivity">
 
 
     <ImageView
@@ -15,40 +15,43 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/app_icon"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
-        android:contentDescription="App Icon" />
+        android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_below="@id/image"
         android:id="@+id/linear_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
+
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/name"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:drawableLeft="@drawable/user"
+            android:layout_weight="1"
             android:drawablePadding="15dp"
-            android:hint="Name"
+            android:drawableStart="@drawable/user"
+            android:hint="@string/user_hint_name"
+            android:inputType="textPersonName"
             android:maxLength="15"
             android:maxLines="1"
-            android:textColor="#FF53C39A"
+            android:textColor="@color/color_accent"
             android:textColorHint="#fff"
             android:textSize="20sp" />
+
         <Spinner
-            android:layout_width="0dp"
             android:id="@+id/spinner"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight=".34"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
         <!--Add a spinner to select male or female-->
     </LinearLayout>
@@ -61,12 +64,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/ic_mail_24dp"
         android:drawablePadding="15dp"
-        android:hint="Email"
+        android:drawableStart="@drawable/ic_mail_24dp"
+        android:hint="@string/user_hint_email"
         android:inputType="textEmailAddress"
         android:maxLines="1"
-        android:textColor="#FF53C39A"
+        android:textColor="@color/color_accent"
         android:textColorHint="#fff"
         android:textSize="20sp" />
 
@@ -83,13 +86,13 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
-            android:drawableLeft="@drawable/ic_pass"
+            android:drawableStart="@drawable/ic_pass"
             android:drawablePadding="15dp"
-            android:hint="Password"
+            android:hint="@string/user_hint_password"
             android:inputType="textPassword"
-            android:maxLines="1"
             android:maxLength="15"
-            android:textColor="#53c39a"
+            android:maxLines="1"
+            android:textColor="@color/color_accent"
             android:textColorHint="#fff"
             android:textSize="20sp" />
 
@@ -98,35 +101,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/password"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:text="SHOW"
+            android:text="@string/user_pass_show"
             android:textColor="#fff" />
 
     </RelativeLayout>
+
     <Button
+        android:id="@+id/getStarted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        android:text="Get   Started"
-        android:id="@+id/getStarted"
-        android:textColor="#fff"
-        android:foreground="?attr/selectableItemBackground"
         android:layout_below="@id/relative"
-        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/user_register"
+        android:textColor="#fff"
         android:textSize="20sp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Help"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:onClick="showHelp"
-        android:drawableLeft="@drawable/ic_help_24dp"
-        android:background="?attr/actionBarItemBackground"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"/>
+        android:background="?attr/actionBarItemBackground"
+        android:drawableStart="@drawable/ic_help_24dp"
+        android:onClick="showHelp"
+        android:text="@string/user_help"
+        android:textAllCaps="false"
+        android:textColor="#fff" />
 
 </RelativeLayout>

@@ -67,7 +67,7 @@ public class UserActivity extends AppCompatActivity {
         }
         if (name_file.equals(Default) || pass_file.equals(Default) || email_file.equals(Default) || gender_file.equals(Default)) {
 
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_user_guest);
 
             show = (Button) findViewById(R.id.show);  //Show button in password
             edit_password = (EditText) findViewById(R.id.password);   //Password EditText
@@ -79,7 +79,7 @@ public class UserActivity extends AppCompatActivity {
 
             //Spinner for choosing the gender
             spinner = (Spinner) findViewById(R.id.spinner);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner, Gender);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Gender);
             adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new spinner());
@@ -137,7 +137,7 @@ public class UserActivity extends AppCompatActivity {
 
         } else {
 
-            setContentView(R.layout.activity_main_second);
+            setContentView(R.layout.activity_user);
             icon_user = (ImageView) findViewById(R.id.image_icon);
             if (gender_file.equals("Male")) {
                 icon_user.setImageResource(R.drawable.male);

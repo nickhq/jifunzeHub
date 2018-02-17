@@ -21,6 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/flash_cards_dashboard" />
+    <include layout="@layout/content_flashcards" />
 
 </android.support.design.widget.CoordinatorLayout>
