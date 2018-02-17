@@ -1,4 +1,4 @@
-package io.nkossy.jifunzeHub;
+package io.nkossy.jifunzeHub.Quiz;
 
 
 import android.app.ProgressDialog;
@@ -15,8 +15,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import io.nkossy.jifunzeHub.BaseActivity;
+import io.nkossy.jifunzeHub.R;
 
-public class NavigationActivity extends BaseActivity{
+
+public class QuizActivity extends BaseActivity {
 
 
     public final static String MESSAGE_INTENT_EXTRA = "io.nkossy.jiFunzeHub.MESSAGE";
@@ -126,7 +129,7 @@ public class NavigationActivity extends BaseActivity{
         btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(NavigationActivity.this, "We are working on ability to add more", Toast.LENGTH_LONG).show();
+                Toast.makeText(QuizActivity.this, "We are working on ability to add more", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -150,7 +153,7 @@ public class NavigationActivity extends BaseActivity{
             public void run() {
                 //Intent start to open the navigation drawer activity
                 progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
+                Intent intent = new Intent(QuizActivity.this, QuestionActivity.class);
                 intent.putExtra(MESSAGE_INTENT_EXTRA, intentExtra);
                 startActivity(intent);
             }

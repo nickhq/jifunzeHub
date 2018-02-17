@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import io.nkossy.jifunzeHub.FlashCards.FlashCardsActivity;
+import io.nkossy.jifunzeHub.Quiz.QuizActivity;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,10 +77,10 @@ public class BaseActivity extends AppCompatActivity
                 }
                 break;
             case R.id.nav_quiz:
-                if (getClass() == NavigationActivity.class) {
+                if (getClass() == QuizActivity.class) {
                     Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
                 } else {
-                    startActivity(new Intent(this, NavigationActivity.class));
+                    startActivity(new Intent(this, QuizActivity.class));
                     finish();
                 }
                 break;

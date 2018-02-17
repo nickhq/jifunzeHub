@@ -1,10 +1,11 @@
-package io.nkossy.jifunzeHub;
+package io.nkossy.jifunzeHub.Quiz;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import io.nkossy.jifunzeHub.R;
 
 
 public class ResultActivity extends AppCompatActivity {

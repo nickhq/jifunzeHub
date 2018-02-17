@@ -1,4 +1,4 @@
-package io.nkossy.jifunzeHub;
+package io.nkossy.jifunzeHub.Quiz;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,7 @@ import com.github.lzyzsd.circleprogress.DonutProgress;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import io.nkossy.jifunzeHub.R;
 import io.nkossy.jifunzeHub.data.ComputerDbHelper;
 import io.nkossy.jifunzeHub.data.EnglishDbHelper;
 import io.nkossy.jifunzeHub.data.GeneralDbHelper;
@@ -65,7 +66,7 @@ public class QuestionActivity extends AppCompatActivity {
         //receiving the intent send by the Navigation activity
         Intent intent = getIntent();
         //converting that intent message to string using the getStringExtra() method
-        get = intent.getStringExtra(NavigationActivity.MESSAGE_INTENT_EXTRA);
+        get = intent.getStringExtra(QuizActivity.MESSAGE_INTENT_EXTRA);
         toast = new Toast(this);
 
 

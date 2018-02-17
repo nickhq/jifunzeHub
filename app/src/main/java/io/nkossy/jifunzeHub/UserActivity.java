@@ -29,9 +29,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.nkossy.jifunzeHub.Quiz.QuizActivity;
+
 //import android.content.DialogInterface;
 
-public class MainActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity {
     //variables
     Button show, show2, getStarted, Continue;
     EditText edit_password, edit_name, edit_email, edit_password2;
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     //If and else are used to check if all the three text field are empty or not
                     if (save_name.equals("") || save_email.equals("") || save_password.equals("")) {
                         try {
-                            Toast.makeText(MainActivity.this, "Please Enter the Details", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserActivity.this, "Please Enter the Details", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                         }
                     } else {
@@ -121,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                             public void run() {
                                 //Intent start to open the navigation drawer activity
                                 progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                                Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
+                                Intent intent = new Intent(UserActivity.this, QuizActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
@@ -173,20 +175,20 @@ public class MainActivity extends AppCompatActivity {
                                 public void run() {
                                     //Intent start to open the navigation drawer activity
                                     progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                                    Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
+                                    Intent intent = new Intent(UserActivity.this, QuizActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
                             }, 2500);
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Please Enter correct password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserActivity.this, "Please Enter correct password", Toast.LENGTH_SHORT).show();
                         }
 
                     }
                 });
             } catch (Exception e) {
-                Toast.makeText(MainActivity.this, "Warning", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserActivity.this, "Warning", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -296,9 +298,9 @@ public class MainActivity extends AppCompatActivity {
         forget.setTextColor(list);
 
         AlertDialog.Builder alertDialog;//Create a dialog object
-        alertDialog = new AlertDialog.Builder(MainActivity.this);
+        alertDialog = new AlertDialog.Builder(UserActivity.this);
         //EditText to show up in the AlertDialog so that the user can enter the email address
-        final EditText editTextDialog = new EditText(MainActivity.this);
+        final EditText editTextDialog = new EditText(UserActivity.this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         editTextDialog.setLayoutParams(layoutParams);
         editTextDialog.setHint("Email");
@@ -324,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 } else {
-                    Toast.makeText(MainActivity.this, "Enter correct Email Address", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserActivity.this, "Enter correct Email Address", Toast.LENGTH_SHORT).show();
                 }
             }
 
