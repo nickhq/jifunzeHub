@@ -32,7 +32,7 @@ public class NavigationActivity extends AppCompatActivity
 
     TextView navHeaderName, navHeaderEmail;
     ImageView navHeaderImage;
-    public final static String Message = "com.kvikesh800gmail.relativlayoutjava.MESSAGE";
+    public final static String MESSAGE_INTENT_EXTRA = "io.nkossy.jiFunzeHub.MESSAGE";
     Button btnComputer, btnGeneral, btnScience, btnEnglish, btnMath, btnMore;
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
@@ -175,7 +175,7 @@ public class NavigationActivity extends AppCompatActivity
                 //Intent start to open the navigation drawer activity
                 progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
                 Intent intent = new Intent(NavigationActivity.this, QuestionActivity.class);
-                intent.putExtra(Message, intentExtra);
+                intent.putExtra(MESSAGE_INTENT_EXTRA, intentExtra);
                 startActivity(intent);
             }
         }, 2000);

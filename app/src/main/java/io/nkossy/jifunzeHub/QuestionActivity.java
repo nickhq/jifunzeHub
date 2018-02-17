@@ -65,7 +65,7 @@ public class QuestionActivity extends AppCompatActivity {
         //receiving the intent send by the Navigation activity
         Intent intent = getIntent();
         //converting that intent message to string using the getStringExtra() method
-        get = intent.getStringExtra(NavigationActivity.Message);
+        get = intent.getStringExtra(NavigationActivity.MESSAGE_INTENT_EXTRA);
         toast = new Toast(this);
 
 
