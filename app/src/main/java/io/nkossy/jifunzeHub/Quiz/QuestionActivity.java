@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.Snackbar;
@@ -22,6 +21,10 @@ import java.util.Collections;
 
 import io.nkossy.jifunzeHub.R;
 import io.nkossy.jifunzeHub.data.SubjectDb;
+
+import static io.nkossy.jifunzeHub.Quiz.QuizActivity.INTENT_COMPUTER;
+import static io.nkossy.jifunzeHub.Quiz.QuizActivity.INTENT_ENGLISH;
+import static io.nkossy.jifunzeHub.Quiz.QuizActivity.INTENT_MATH;
 
 public class QuestionActivity extends AppCompatActivity {
     DonutProgress donutProgress;
@@ -48,7 +51,6 @@ public class QuestionActivity extends AppCompatActivity {
     String optionD;
 
     Toast toast;
-    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +74,6 @@ public class QuestionActivity extends AppCompatActivity {
         donutProgress.setFinishedStrokeColor(Color.parseColor("#FFFB385F"));
         donutProgress.setTextColor(Color.parseColor("#FFFB385F"));
         donutProgress.setKeepScreenOn(true);
-
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        //To play background sound
-        if (sp.getInt("Sound", 0) == 0) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.abc);
-            // mediaPlayer.start();
-            mediaPlayer.setLooping(true);
-        }
 
 
         //Till here we are linking the database file
@@ -116,7 +110,7 @@ public class QuestionActivity extends AppCompatActivity {
 
 
         switch (get) {
-            case "computerIntent":
+            case INTENT_COMPUTER:
 
                 if (populateFields) {
                     for (int i = 1; i < 90; i++) {
@@ -137,7 +131,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                 computer.close();
                 break;
-            case "englishIntent":
+            case INTENT_ENGLISH:
                 if (populateFields) {
                     for (int i = 1; i < 27; i++) {
                         list.add(i);
@@ -160,7 +154,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                 english.close();
                 break;
-            case "mathIntent":
+            case INTENT_MATH:
                 if (populateFields) {
                     for (int i = 1; i < 26; i++) {
                         list.add(i);
@@ -182,51 +176,6 @@ public class QuestionActivity extends AppCompatActivity {
                 global = math.readAnswer(list.get(j++));
                 math.close();
                 break;
-            case "generalIntent":
-                if (populateFields) {
-                    for (int i = 1; i < 25; i++) {
-                        list.add(i);
-                    }
-                    Collections.shuffle(list);
-                    populateFields = false;
-                }
-                SubjectDb general = new SubjectDb(this, "general.db", "general");
-                general.open();
-
-                question = general.readQuestion(list.get(j));
-                optionA = general.readOptionA(list.get(j));
-                optionB = general.readOptionB(list.get(j));
-                optionC = general.readOptionC(list.get(j));
-                optionD = general.readOptionD(list.get(j));
-                if (j == list.size() - 2) {
-                    startResult();
-                }
-                global = general.readAnswer(list.get(j++));
-                general.close();
-                break;
-            case "scienceIntent":
-                if (populateFields) {
-                    for (int i = 1; i < 30; i++) {
-                        list.add(i);
-                    }
-                    Collections.shuffle(list);
-                    populateFields = false;
-                }
-                SubjectDb science = new SubjectDb(this, "science.db", "science");
-                science.open();
-
-                question = science.readQuestion(list.get(j));
-                optionA = science.readOptionA(list.get(j));
-                optionB = science.readOptionB(list.get(j));
-                optionC = science.readOptionC(list.get(j));
-                optionD = science.readOptionD(list.get(j));
-                if (j == list.size() - 2) {
-                    startResult();
-                }
-                global = science.readAnswer(list.get(j++));
-                science.close();
-                break;
-
         }
         txtQuestion.setText(question);
         btnOptA.setText(optionA);
@@ -241,7 +190,8 @@ public class QuestionActivity extends AppCompatActivity {
             switch (global) {
                 case "A":
                     if (v.getId() == R.id.OptionA) {
-                        //Here we use the snackbar because if we use the toast then they will be stacked an user cannot idetify which questions answer is it showing
+                        //Here we use the snack bar because if we use the toast then they will be
+                        // stacked an user cannot identify which questions answer is it showing
                         Snackbar.make(v, "         Correct ☺", Snackbar.LENGTH_SHORT).show();
 
                         correctQuestions++;
@@ -299,18 +249,14 @@ public class QuestionActivity extends AppCompatActivity {
                 toast.cancel();
                 //here we are saving the data when the countdown timer will finish
                 // and it is saved in shared preference file that is defined in
-                // onCreate method as score
+                // onCreate method as txtScore
 
-                if (get.equals("computerIntent") && getScore("computer") < correctQuestions)
+                if (get.equals(INTENT_COMPUTER) && getScore("computer") < correctQuestions)
                     saveScore("computer", calculateScore(correctQuestions));
-                else if (get.equals("englishIntent") && getScore("english") < calculateScore(correctQuestions)) {
+                else if (get.equals(INTENT_ENGLISH) && getScore("english") < calculateScore(correctQuestions)) {
                     saveScore("english", calculateScore(correctQuestions));
-                } else if (get.equals("mathIntent") && getScore("math") < calculateScore(correctQuestions)) {
+                } else if (get.equals(INTENT_MATH) && getScore("math") < calculateScore(correctQuestions)) {
                     saveScore("math", calculateScore(correctQuestions));
-                } else if (get.equals("generalIntent") && getScore("general") < calculateScore(correctQuestions)) {
-                    saveScore("general", calculateScore(correctQuestions));
-                } else if (get.equals("scienceIntent") && getScore("science") < calculateScore(correctQuestions)) {
-                    saveScore("science", calculateScore(correctQuestions));
                 }
 
                 donutProgress.setProgress(0);
@@ -324,7 +270,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void startResult() {
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
-        intent.putExtra("correct", correctQuestions);
+        intent.putExtra("txtCorrect", correctQuestions);
         intent.putExtra("attempt", attemptedQuestions);
         startActivity(intent);
     }
@@ -351,18 +297,12 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         killActivity = false;
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0)
-            mediaPlayer.pause();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         killActivity = false;
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0) ;
-        // mediaPlayer.start();
     }
 
     @Override

@@ -9,8 +9,9 @@ import io.nkossy.jifunzeHub.R;
 
 
 public class ResultActivity extends AppCompatActivity {
-    TextView correct, incorrect, attempted, score, you;
-    int cor = 0, incorr = 0, attempt = 0, scor = 0;
+    TextView txtCorrect, txtIncorrect, txtAttempted, txtScore;
+    TextView txtMessage;
+    int correct = 0, incorrect = 0, attempt = 0, score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,29 +19,29 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent intent = getIntent();
-        cor = intent.getIntExtra("correct", 0);
+        correct = intent.getIntExtra("txtCorrect", 0);
         attempt = intent.getIntExtra("attempt", 1);
-        incorr = attempt - cor;
-        scor = 10 * cor;
-        correct = findViewById(R.id.correct);
-        incorrect = findViewById(R.id.incorrect);
-        attempted = findViewById(R.id.attempted);
-        score = findViewById(R.id.score);
-        you = findViewById(R.id.you);
+        incorrect = attempt - correct;
+        score = 10 * correct;
+        txtCorrect = findViewById(R.id.correct);
+        txtIncorrect = findViewById(R.id.incorrect);
+        txtAttempted = findViewById(R.id.attempted);
+        txtScore = findViewById(R.id.score);
+        txtMessage = findViewById(R.id.message);
 
-        attempted.setText(String.valueOf(attempt));
-        correct.setText(String.valueOf(cor));
-        incorrect.setText(String.valueOf(incorr));
-        score.setText(String.format(getString(R.string.form), scor));
-        float x1 = (cor * 100) / attempt;
+        txtAttempted.setText(String.valueOf(attempt));
+        txtCorrect.setText(String.valueOf(correct));
+        txtIncorrect.setText(String.valueOf(incorrect));
+        txtScore.setText(String.format(getString(R.string.form), score));
+        float x1 = (correct * 100) / attempt;
         if (x1 < 40)
-            you.setText(R.string.result_low);
+            txtMessage.setText(R.string.result_low);
         else if (x1 < 70)
-            you.setText(R.string.result_average);
+            txtMessage.setText(R.string.result_average);
         else if (x1 < 90)
-            you.setText(R.string.result_above_average);
+            txtMessage.setText(R.string.result_above_average);
         else
-            you.setText(R.string.result_good);
+            txtMessage.setText(R.string.result_good);
     }
 }
 

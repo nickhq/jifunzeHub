@@ -100,7 +100,7 @@
         android:background="#bebebe" />
 
     <TextView
-        android:id="@+id/you"
+        android:id="@+id/message"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

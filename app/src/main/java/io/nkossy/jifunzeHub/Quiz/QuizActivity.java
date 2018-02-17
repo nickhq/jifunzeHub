@@ -2,10 +2,7 @@ package io.nkossy.jifunzeHub.Quiz;
 
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
@@ -37,10 +34,10 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
 
     CardView cardHistory;
     CardView cardCre;
-    CardView cardGeograpy;
+    CardView cardGeography;
 
     private ProgressDialog progressBar;
-    MediaPlayer mediaPlayer;
+
 
 
     @Override
@@ -64,14 +61,6 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
         mNavigationView.setNavigationItemSelectedListener(this);
 
 
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        //To play background sound
-        if (sp.getInt("Sound", 0) == 0) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.abc);
-            // mediaPlayer.start();
-            mediaPlayer.setLooping(true);
-        }
-
         cardMath = findViewById(R.id.quiz_card_math);
         cardEnglish = findViewById(R.id.quiz_card_english);
         cardSwahili = findViewById(R.id.quiz_card_swahili);
@@ -86,7 +75,7 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
 
         cardCre = findViewById(R.id.quiz_card_cre);
         cardHistory = findViewById(R.id.quiz_card_history);
-        cardGeograpy = findViewById(R.id.quiz_card_geography);
+        cardGeography = findViewById(R.id.quiz_card_geography);
 
         cardMath.setOnClickListener(this);
         cardEnglish.setOnClickListener(this);
@@ -102,7 +91,7 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
 
         cardCre.setOnClickListener(this);
         cardHistory.setOnClickListener(this);
-        cardGeograpy.setOnClickListener(this);
+        cardGeography.setOnClickListener(this);
     }
 
     private void setAndShowProgressBar() {
@@ -140,23 +129,6 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0)
-            mediaPlayer.pause();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0) ;
-        //mediaPlayer.start();
-    }
-
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -164,11 +136,11 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
         switch (id) {
             case R.id.quiz_card_math:
                 setAndShowProgressBar();
-                launchQuizActivity(MATH_INTENT);
+                launchQuizActivity(INTENT_MATH);
                 break;
             case R.id.quiz_card_english:
                 setAndShowProgressBar();
-                launchQuizActivity(ENGLISH_INTENT);
+                launchQuizActivity(INTENT_ENGLISH);
                 break;
 
             case R.id.quiz_card_swahili:
@@ -186,7 +158,7 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
 
             case R.id.quiz_card_computer:
                 setAndShowProgressBar();
-                launchQuizActivity(COMPUTER_INTENT);
+                launchQuizActivity(INTENT_COMPUTER);
                 break;
 
             case R.id.quiz_card_business:
@@ -207,20 +179,20 @@ public class QuizActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    public static final String MATH_INTENT = "mathIntent";
-    public static final String ENGLISH_INTENT = "englishIntent";
-    public static final String SWAHILI_INTENT = "swahiliIntent";
+    public static final String INTENT_MATH = "mathIntent";
+    public static final String INTENT_ENGLISH = "englishIntent";
+    public static final String INTENT_SWAHILI = "swahiliIntent";
 
-    public static final String BIOLOGY_INTENT = "biologyIntent";
-    public static final String CHEMISTRY_INTENT = "chemistryIntent";
-    public static final String PHYSICS_INTENT = "physicsIntent";
+    public static final String INTENT_BIOLOGY = "biologyIntent";
+    public static final String INTENT_CHEMISTRY = "chemistryIntent";
+    public static final String INENT_PHYSICS = "physicsIntent";
 
-    public static final String COMPUTER_INTENT = "computerIntent";
-    public static final String BUSINESS_INTENT = "businessIntent";
-    public static final String AGRICULTURE_INTENT = "agricultureIntent";
+    public static final String INTENT_COMPUTER = "computerIntent";
+    public static final String INTENT_BUSINESS = "businessIntent";
+    public static final String INTENT_AGRICULTURE = "agricultureIntent";
 
-    public static final String HISTORY_INTENT = "historyIntent";
-    public static final String GEOGRAPHY_INTENT = "geographyIntent";
-    public static final String CRE_INTENT = "creIntent";
+    public static final String INTENT_HISTORY = "historyIntent";
+    public static final String INTENT_GEOGRAPHY = "geographyIntent";
+    public static final String INTENT_CRE = "creIntent";
 }
 
