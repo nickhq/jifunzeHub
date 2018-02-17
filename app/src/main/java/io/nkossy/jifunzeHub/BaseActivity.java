@@ -68,12 +68,20 @@ public class BaseActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.nav_flash_cards:
-                startActivity(new Intent(this, FlashCardsActivity.class));
-                finish();
+                if (getClass() == FlashCardsActivity.class) {
+                    Toast.makeText(this, "You are Here", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(this, FlashCardsActivity.class));
+                    finish();
+                }
                 break;
             case R.id.nav_quiz:
-                startActivity(new Intent(this, NavigationActivity.class));
-                finish();
+                if (getClass() == NavigationActivity.class) {
+                    Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+                } else {
+                    startActivity(new Intent(this, NavigationActivity.class));
+                    finish();
+                }
                 break;
             case R.id.nav_leader_board:
                 Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
