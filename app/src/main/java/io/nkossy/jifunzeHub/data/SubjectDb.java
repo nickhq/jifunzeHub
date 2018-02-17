@@ -29,16 +29,16 @@ public class SubjectDb {
     private String tableName;
 
 
-    private SubjectDb(Context context, String dbName, String tableName){
+    private SubjectDb(Context context, String dbName, String tableName) {
         this.tableName = tableName;
         this.openHelper = new DbAssetsHelper(context, dbName);
     }
 
     /**
-     * Return a singleton instance of ComputerDbHelper.
+     * Return a singleton instance of SubjectDb.
      *
      * @param context the Context
-     * @return the instance of ComputerDbHelper
+     * @return the instance of SubjectDb
      */
     public static SubjectDb getInstance(Context context, String dbName, String tableName) {
         if (instance == null) {
@@ -63,78 +63,80 @@ public class SubjectDb {
         }
     }
 
-    //Used to read the data from the Des.db file where id is given and we choose id randomly
+    /**
+     * read the question of given subject db file where id is chosen  randomly
+     *
+     * @param id The id of the question
+     * @return question
+     */
     public String readQuestion(int id) {
-        //string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
-        String Ans;
-        //cursor to that query
-        Cursor c = database.rawQuery("SELECT " + COL_QUESTION + " FROM "+ tableName +" WHERE _id = " + id + "", null);
-        if (c.moveToFirst())
-            Ans = c.getString(0);
+        String question;
+        // run a raw DB query to select the question of a subject
+        Cursor cursor = database.rawQuery("SELECT " + COL_QUESTION + " FROM " + tableName + " WHERE _id = " + id + "", null);
+        if (cursor.moveToFirst())
+            question = cursor.getString(0);
         else
-            Ans = "";
-        c.close();
-        return Ans;
+            question = "";
+        cursor.close();
+        return question;
     }
 
-    public String readOptionA(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
-    {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
-        Cursor c = database.rawQuery("SELECT " + COL_OPTION_A + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
+    public String readOptionA(int id) {
+        String optionA;
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_A + " FROM " + tableName + " WHERE " + COL_ID + " = " + id + "", null);//cursor to that query
         if (c.moveToFirst())
-            Ans = c.getString(0);
+            optionA = c.getString(0);
         else
-            Ans = "";
+            optionA = "";
         c.close();
-        return Ans;
+        return optionA;
     }
 
-    public String readOptionB(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
-    {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
-        Cursor c = database.rawQuery("SELECT " + COL_OPTION_B + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
+    public String readOptionB(int id) {
+        String optionB;
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_B + " FROM " + tableName + " WHERE " + COL_ID + " = " + id + "", null);//cursor to that query
         if (c.moveToFirst())
-            Ans = c.getString(0);
+            optionB = c.getString(0);
         else
-            Ans = "";
+            optionB = "";
         c.close();
-        return Ans;
+        return optionB;
     }
 
-    public String readOptionC(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
+    public String readOptionC(int id)
     {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
-        Cursor c = database.rawQuery("SELECT " + COL_OPTION_C + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
+        String optionC;
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_C + " FROM " + tableName + " WHERE " + COL_ID + " = " + id + "", null);//cursor to that query
         if (c.moveToFirst())
-            Ans = c.getString(0);
+            optionC = c.getString(0);
         else
-            Ans = "";
+            optionC = "";
         c.close();
-        return Ans;
+        return optionC;
     }
 
-    public String readOptionD(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
+    public String readOptionD(int id)
     {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
-        Cursor c = database.rawQuery("SELECT " + COL_OPTION_D + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
+        String optionD;
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_D + " FROM " + tableName + " WHERE " + COL_ID + " = " + id + "", null);//cursor to that query
         if (c.moveToFirst())
-            Ans = c.getString(0);
+            optionD = c.getString(0);
         else
-            Ans = "";
+            optionD = "";
         c.close();
-        return Ans;
+        return optionD;
     }
 
-    public String readAnswer(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
+    public String readAnswer(int id)
     {
 
-        String Ans = "";//string that contains the required field
-        Cursor c = database.rawQuery("SELECT " + COL_ANSWER + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
+        String answer;
+        Cursor c = database.rawQuery("SELECT " + COL_ANSWER + " FROM " + tableName + " WHERE " + COL_ID + " = " + id + "", null);//cursor to that query
         if (c.moveToFirst())
-            Ans = c.getString(0);
+            answer = c.getString(0);
         else
-            Ans = "";
+            answer = "";
         c.close();
-        return Ans;
+        return answer;
     }
 }

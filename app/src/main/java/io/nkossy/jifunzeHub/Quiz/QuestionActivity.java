@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import io.nkossy.jifunzeHub.R;
-import io.nkossy.jifunzeHub.data.EnglishDbHelper;
-import io.nkossy.jifunzeHub.data.GeneralDbHelper;
-import io.nkossy.jifunzeHub.data.MathDbHelper;
-import io.nkossy.jifunzeHub.data.ScienceDbHelper;
 import io.nkossy.jifunzeHub.data.SubjectDb;
 
 public class QuestionActivity extends AppCompatActivity {
@@ -138,6 +134,8 @@ public class QuestionActivity extends AppCompatActivity {
                 optionC = computer.readOptionC(list.get(j));
                 optionD = computer.readOptionD(list.get(j));
                 global = computer.readAnswer(list.get(j++));
+
+                computer.close();
                 break;
             case "englishIntent":
                 if (populateFields) {
@@ -147,7 +145,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                EnglishDbHelper english = EnglishDbHelper.getInstance(this);
+                SubjectDb english = SubjectDb.getInstance(this, "english.db", "english");
                 english.open();
 
                 question = english.readQuestion(list.get(j));
@@ -159,6 +157,8 @@ public class QuestionActivity extends AppCompatActivity {
                     startResult();
                 }
                 global = english.readAnswer(list.get(j++));
+
+                english.close();
                 break;
             case "mathIntent":
                 if (populateFields) {
@@ -168,7 +168,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                MathDbHelper math = MathDbHelper.getInstance(this);
+                SubjectDb math = SubjectDb.getInstance(this, "maths.db", "maths");
                 math.open();
 
                 question = math.readQuestion(list.get(j));
@@ -180,6 +180,7 @@ public class QuestionActivity extends AppCompatActivity {
                     startResult();
                 }
                 global = math.readAnswer(list.get(j++));
+                math.close();
                 break;
             case "generalIntent":
                 if (populateFields) {
@@ -189,7 +190,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                GeneralDbHelper general = GeneralDbHelper.getInstance(this);
+                SubjectDb general = SubjectDb.getInstance(this, "general.db", "general");
                 general.open();
 
                 question = general.readQuestion(list.get(j));
@@ -201,6 +202,7 @@ public class QuestionActivity extends AppCompatActivity {
                     startResult();
                 }
                 global = general.readAnswer(list.get(j++));
+                general.close();
                 break;
             case "scienceIntent":
                 if (populateFields) {
@@ -210,7 +212,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Collections.shuffle(list);
                     populateFields = false;
                 }
-                ScienceDbHelper science = ScienceDbHelper.getInstance(this);
+                SubjectDb science = SubjectDb.getInstance(this, "science.db", "science");
                 science.open();
 
                 question = science.readQuestion(list.get(j));
@@ -222,6 +224,7 @@ public class QuestionActivity extends AppCompatActivity {
                     startResult();
                 }
                 global = science.readAnswer(list.get(j++));
+                science.close();
                 break;
 
         }
