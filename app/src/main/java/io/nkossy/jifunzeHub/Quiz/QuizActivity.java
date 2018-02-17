@@ -13,22 +13,34 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 
 import io.nkossy.jifunzeHub.BaseActivity;
 import io.nkossy.jifunzeHub.R;
 
 
-public class QuizActivity extends BaseActivity {
+public class QuizActivity extends BaseActivity implements View.OnClickListener {
 
 
     public final static String MESSAGE_INTENT_EXTRA = "io.nkossy.jiFunzeHub.MESSAGE";
-    Button btnComputer, btnGeneral, btnScience, btnEnglish, btnMath, btnMore;
+
+    CardView cardMath;
+    CardView cardEnglish;
+    CardView cardSwahili;
+
+    CardView cardPhysics;
+    CardView cardChemistry;
     CardView cardBiology;
+
     CardView cardComputer;
+    CardView cardBusiness;
+    CardView cardAgriculture;
+
+    CardView cardHistory;
+    CardView cardCre;
+    CardView cardGeograpy;
+
     private ProgressDialog progressBar;
     MediaPlayer mediaPlayer;
-
 
 
     @Override
@@ -56,103 +68,41 @@ public class QuizActivity extends BaseActivity {
         //To play background sound
         if (sp.getInt("Sound", 0) == 0) {
             mediaPlayer = MediaPlayer.create(this, R.raw.abc);
-           // mediaPlayer.start();
+            // mediaPlayer.start();
             mediaPlayer.setLooping(true);
         }
 
+        cardMath = findViewById(R.id.quiz_card_math);
+        cardEnglish = findViewById(R.id.quiz_card_english);
+        cardSwahili = findViewById(R.id.quiz_card_swahili);
 
+        cardChemistry = findViewById(R.id.quiz_card_chemistry);
         cardBiology = findViewById(R.id.quiz_card_biology);
+        cardPhysics = findViewById(R.id.quiz_card_physics);
+
         cardComputer = findViewById(R.id.quiz_card_computer);
+        cardBusiness = findViewById(R.id.quiz_card_business);
+        cardAgriculture = findViewById(R.id.quiz_card_agriculture);
 
-        cardBiology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setAndShowProgressBar();
-                launchQuizActivity("scienceIntent");
-            }
-        });
-        cardComputer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setAndShowProgressBar();
-                launchQuizActivity("computerIntent");
-            }
-        });
-        /*
-        btnComputer = findViewById(R.id.btnComputer);
-        btnMore = findViewById(R.id.btnMore);
-        btnGeneral = findViewById(R.id.btnGeneral);
-        btnScience = findViewById(R.id.btnScience);
-        btnEnglish = findViewById(R.id.btnEnglish);
-        btnMath = findViewById(R.id.btnMath);*/
+        cardCre = findViewById(R.id.quiz_card_cre);
+        cardHistory = findViewById(R.id.quiz_card_history);
+        cardGeograpy = findViewById(R.id.quiz_card_geography);
 
+        cardMath.setOnClickListener(this);
+        cardEnglish.setOnClickListener(this);
+        cardSwahili.setOnClickListener(this);
 
-      /*  btnComputer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        cardChemistry.setOnClickListener(this);
+        cardBiology.setOnClickListener(this);
+        cardPhysics.setOnClickListener(this);
 
+        cardComputer.setOnClickListener(this);
+        cardBusiness.setOnClickListener(this);
+        cardAgriculture.setOnClickListener(this);
 
-                setAndShowProgressBar();
-                launchQuizActivity("computerIntent");
-            }
-        });
-
-
-        btnGeneral.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAndShowProgressBar();
-                launchQuizActivity("generalIntent");
-            }
-        });
-
-
-        btnScience.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                setAndShowProgressBar();
-                launchQuizActivity("scienceIntent");
-            }
-        });
-
-
-        btnEnglish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                setAndShowProgressBar();
-                launchQuizActivity("englishIntent");
-            }
-        });
-
-
-        btnMath.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //To show button click
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                    }
-                }, 400);
-
-                setAndShowProgressBar();
-                launchQuizActivity("mathIntent");
-
-            }
-        });
-
-        btnMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(QuizActivity.this, "We are working on ability to add more", Toast.LENGTH_LONG).show();
-            }
-        });
-        */
-
+        cardCre.setOnClickListener(this);
+        cardHistory.setOnClickListener(this);
+        cardGeograpy.setOnClickListener(this);
     }
 
     private void setAndShowProgressBar() {
@@ -191,7 +141,6 @@ public class QuizActivity extends BaseActivity {
     }
 
 
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -204,9 +153,74 @@ public class QuizActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (sp.getInt("Sound", 0) == 0);
-            //mediaPlayer.start();
+        if (sp.getInt("Sound", 0) == 0) ;
+        //mediaPlayer.start();
     }
 
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+
+        switch (id) {
+            case R.id.quiz_card_math:
+                setAndShowProgressBar();
+                launchQuizActivity(MATH_INTENT);
+                break;
+            case R.id.quiz_card_english:
+                setAndShowProgressBar();
+                launchQuizActivity(ENGLISH_INTENT);
+                break;
+
+            case R.id.quiz_card_swahili:
+
+                break;
+
+            case R.id.quiz_card_biology:
+                break;
+
+            case R.id.quiz_card_chemistry:
+                break;
+
+            case R.id.quiz_card_physics:
+                break;
+
+            case R.id.quiz_card_computer:
+                setAndShowProgressBar();
+                launchQuizActivity(COMPUTER_INTENT);
+                break;
+
+            case R.id.quiz_card_business:
+                break;
+
+            case R.id.quiz_card_agriculture:
+                break;
+
+            case R.id.quiz_card_history:
+                break;
+
+            case R.id.quiz_card_geography:
+                break;
+
+            case R.id.quiz_card_cre:
+                break;
+
+        }
+    }
+
+    public static final String MATH_INTENT = "mathIntent";
+    public static final String ENGLISH_INTENT = "englishIntent";
+    public static final String SWAHILI_INTENT = "swahiliIntent";
+
+    public static final String BIOLOGY_INTENT = "biologyIntent";
+    public static final String CHEMISTRY_INTENT = "chemistryIntent";
+    public static final String PHYSICS_INTENT = "physicsIntent";
+
+    public static final String COMPUTER_INTENT = "computerIntent";
+    public static final String BUSINESS_INTENT = "businessIntent";
+    public static final String AGRICULTURE_INTENT = "agricultureIntent";
+
+    public static final String HISTORY_INTENT = "historyIntent";
+    public static final String GEOGRAPHY_INTENT = "geographyIntent";
+    public static final String CRE_INTENT = "creIntent";
 }
 

@@ -74,7 +74,7 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/quiz_card_biology"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -112,9 +112,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_chemistry"
+                android:id="@+id/quiz_card_chemistry"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -162,7 +162,7 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/quiz_card_math"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -200,9 +200,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_english"
+                android:id="@+id/quiz_card_english"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -250,7 +250,7 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/quiz_card_swahili"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -288,9 +288,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_physics"
+                android:id="@+id/quiz_card_physics"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -338,7 +338,7 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/quiz_card_agriculture"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -376,9 +376,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_cre"
+                android:id="@+id/quiz_card_cre"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -425,7 +425,7 @@
             android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_business"
+                android:id="@+id/quiz_card_business"
                 android:layout_width="340dp"
                 android:layout_height="150dp"
                 android:layout_margin="10dp"
@@ -475,7 +475,7 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/quiz_card_geography"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -513,9 +513,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_history"
+                android:id="@+id/quiz_card_history"
                 android:layout_width="160dp"
-                android:layout_height="190dp"
+                android:layout_height="160dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:focusable="true"
