@@ -5,9 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by nickhq on 2/15/18
  */
@@ -28,7 +25,7 @@ public class ComputerDbHelper {
     private static final String Answer = "Answer";//name of column7
     private static final String DB_NAME = "computer.db";
 
-    public ComputerDbHelper(Context context){
+    private ComputerDbHelper(Context context){
         this.openHelper = new DbAssetsHelper(context, DB_NAME);
     }
 
@@ -61,29 +58,12 @@ public class ComputerDbHelper {
         }
     }
 
-    /**
-     * Read all quotes from the database.
-     *
-     * @return a List of quotes
-     */
-    public List<String> getComputerQuizes() {
-        List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT Question FROM computer", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return list;
-    }
-
     //Used to read the data from the Des.db file where id is given and we choose id randomly
     public String readQuestion(int id) {
         //string that contains the required field  note that Ans is just a local string not related to Answer or Option...
         String Ans;
         //cursor to that query
-        Cursor c = database.rawQuery("SELECT Question FROM computer WHERE _id = " + id + "", null);
+        Cursor c = database.rawQuery("SELECT " + Question + " FROM "+ Table_name +" WHERE _id = " + id + "", null);
         if (c.moveToFirst())
             Ans = c.getString(0);
         else

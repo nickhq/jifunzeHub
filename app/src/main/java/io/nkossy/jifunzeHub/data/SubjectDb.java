@@ -9,25 +9,29 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by nickhq on 2/15/18
  */
 
-public class EnglishDbHelper {
+public class SubjectDb {
 
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
-    private static EnglishDbHelper instance;
+    private static SubjectDb instance;
 
-    private static final String Table_name = "english";//name of table
-    private static final String uid = "_id";//name of column1
-    private static final String Question = "Question";//name of column2
-    private static final String OptionA = "OptionA";//name of column3
-    private static final String OptionB = "OptionB";//name of column4
-    private static final String OptionC = "OptionC";//name of column5
-    private static final String OptionD = "OptionD";//name of column6
-    private static final String Answer = "Answer";//name of column7
 
-    private static final String DB_NAME = "english.db";
+    // columns of the various subjects table
+    private static final String COL_ID = "_id";
+    private static final String COL_QUESTION = "COL_QUESTION";
+    private static final String COL_OPTION_A = "COL_OPTION_A";
+    private static final String COL_OPTION_B = "COL_OPTION_B";
+    private static final String COL_OPTION_C = "COL_OPTION_C";
+    private static final String COL_OPTION_D = "COL_OPTION_D";
+    private static final String COL_ANSWER = "COL_ANSWER";
 
-    private EnglishDbHelper(Context context){
-        this.openHelper = new DbAssetsHelper(context, DB_NAME);
+
+    private String tableName;
+
+
+    private SubjectDb(Context context, String dbName, String tableName){
+        this.tableName = tableName;
+        this.openHelper = new DbAssetsHelper(context, dbName);
     }
 
     /**
@@ -36,9 +40,9 @@ public class EnglishDbHelper {
      * @param context the Context
      * @return the instance of ComputerDbHelper
      */
-    public static EnglishDbHelper getInstance(Context context) {
+    public static SubjectDb getInstance(Context context, String dbName, String tableName) {
         if (instance == null) {
-            instance = new EnglishDbHelper(context);
+            instance = new SubjectDb(context, dbName, tableName);
         }
         return instance;
     }
@@ -59,13 +63,12 @@ public class EnglishDbHelper {
         }
     }
 
-
     //Used to read the data from the Des.db file where id is given and we choose id randomly
     public String readQuestion(int id) {
-        //string that contains the required field  note that Ans is just a local string not related to Answer or Option...
+        //string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
         String Ans;
         //cursor to that query
-        Cursor c = database.rawQuery("SELECT " + Question + " FROM " + Table_name + " WHERE _id = " + id + "", null);
+        Cursor c = database.rawQuery("SELECT " + COL_QUESTION + " FROM "+ tableName +" WHERE _id = " + id + "", null);
         if (c.moveToFirst())
             Ans = c.getString(0);
         else
@@ -76,8 +79,8 @@ public class EnglishDbHelper {
 
     public String readOptionA(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
     {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to Answer or Option...
-        Cursor c = database.rawQuery("SELECT " + OptionA + " FROM " + Table_name + " WHERE " + uid + " = " + i + "", null);//cursor to that query
+        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_A + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
         if (c.moveToFirst())
             Ans = c.getString(0);
         else
@@ -88,8 +91,8 @@ public class EnglishDbHelper {
 
     public String readOptionB(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
     {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to Answer or Option...
-        Cursor c = database.rawQuery("SELECT " + OptionB + " FROM " + Table_name + " WHERE " + uid + " = " + i + "", null);//cursor to that query
+        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_B + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
         if (c.moveToFirst())
             Ans = c.getString(0);
         else
@@ -100,8 +103,8 @@ public class EnglishDbHelper {
 
     public String readOptionC(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
     {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to Answer or Option...
-        Cursor c = database.rawQuery("SELECT " + OptionC + " FROM " + Table_name + " WHERE " + uid + " = " + i + "", null);//cursor to that query
+        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_C + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
         if (c.moveToFirst())
             Ans = c.getString(0);
         else
@@ -112,8 +115,8 @@ public class EnglishDbHelper {
 
     public String readOptionD(int i)//Used to read the data from the Des.db file where id is given and we choose id randomly
     {
-        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to Answer or Option...
-        Cursor c = database.rawQuery("SELECT " + OptionD + " FROM " + Table_name + " WHERE " + uid + " = " + i + "", null);//cursor to that query
+        String Ans = "";//string that contains the required field  note that Ans is just a local string not related to COL_ANSWER or Option...
+        Cursor c = database.rawQuery("SELECT " + COL_OPTION_D + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
         if (c.moveToFirst())
             Ans = c.getString(0);
         else
@@ -126,7 +129,7 @@ public class EnglishDbHelper {
     {
 
         String Ans = "";//string that contains the required field
-        Cursor c = database.rawQuery("SELECT " + Answer + " FROM " + Table_name + " WHERE " + uid + " = " + i + "", null);//cursor to that query
+        Cursor c = database.rawQuery("SELECT " + COL_ANSWER + " FROM " + tableName + " WHERE " + COL_ID + " = " + i + "", null);//cursor to that query
         if (c.moveToFirst())
             Ans = c.getString(0);
         else
