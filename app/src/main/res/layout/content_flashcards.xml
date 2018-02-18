@@ -39,7 +39,7 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/background_purple"
+                        android:background="@drawable/background_wet_asphalt"
                         android:contentDescription="@string/biology_class"
                         android:padding="10dp"
                         android:src="@drawable/ic_class_biology" />
@@ -88,7 +88,7 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/background_pink"
+                        android:background="@drawable/background_turquoise"
                         android:contentDescription="@string/biology_class"
                         android:padding="10dp"
                         android:src="@drawable/ic_class_chemistry" />
@@ -146,7 +146,7 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/background_green"
+                        android:background="@drawable/background_sunflower"
                         android:contentDescription="@string/computer_class"
                         android:padding="10dp"
                         android:src="@drawable/ic_class_computer" />
@@ -195,7 +195,7 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/background_yellow"
+                        android:background="@drawable/background_peter_river"
                         android:contentDescription="@string/business_class"
                         android:padding="10dp"
                         android:src="@drawable/ic_class_business" />
@@ -252,7 +252,7 @@
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@drawable/background_purple"
+                        android:background="@drawable/background_emerald"
                         android:padding="10dp"
                         android:src="@drawable/ic_control_point_black_24dp" />
 
