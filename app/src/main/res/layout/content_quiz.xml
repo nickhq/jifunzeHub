@@ -307,7 +307,7 @@
                         android:layout_height="64dp"
                         android:background="@drawable/background_green"
                         android:contentDescription="@string/physics_class"
-                        android:padding="10dp"
+                        android:padding="12dp"
                         android:src="@drawable/ic_class_physics" />
 
 
@@ -493,7 +493,7 @@
                         android:background="@drawable/background_yellow"
                         android:contentDescription="@string/geography_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_class_biology" />
+                        android:src="@drawable/ic_class_geography" />
 
 
                     <View

@@ -16,4 +16,27 @@
     <color name="color_accent">#FF53C39A</color>
 
     <color name="transparent">#00000000</color>
+
+    <!-- subject backgrounds -->
+    <!--SOURCE: https://flatuicolors.com/palette/defo -->
+    <color name="backgroundTurquoise">#1abc9c</color>
+    <color name="backgroundEmerald">#2ecc71</color>
+    <color name="backgroundPeterRiver">#3498db</color>
+    <color name="backgroundAmethyst">#9b59b6</color>
+    <color name="backgroundWetAsphalt">#34495e</color>
+    <color name="backgroundGreenSea">#16a085</color>
+    <color name="backgroundNephritis">#27ae60</color>
+    <color name="backgroundBlitzHole">#2980b9</color>
+    <color name="backgroundWisteria">#8e44ad</color>
+    <color name="backgroundMidnightBlue">#2c3e50</color>
+    <color name="backgroundSunflower">#f1c40f</color>
+    <color name="backgroundCarrot">#e67e22</color>
+    <color name="backgroundAlizarin">#e74c3c</color>
+    <color name="backgroundClouds">#ecf0f1</color>
+    <color name="backgroundConcrete">#95a5a6</color>
+    <color name="backgroundOrange">#f39c12</color>
+    <color name="backgroundPumpkin">#d35400</color>
+    <color name="backgroundPomegranate">#c0392b</color>
+    <color name="backgroundSilver">#bdc3c7</color>
+    <color name="backgroundAsbestos">#7f8c8d</color>
 </resources>
