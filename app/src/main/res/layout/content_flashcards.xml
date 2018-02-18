@@ -42,7 +42,7 @@
                         android:background="@drawable/background_purple"
                         android:contentDescription="@string/biology_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_biology_class" />
+                        android:src="@drawable/ic_class_biology" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                         android:background="@drawable/background_pink"
                         android:contentDescription="@string/biology_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_chemistry_class" />
+                        android:src="@drawable/ic_class_chemistry" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
                         android:background="@drawable/background_green"
                         android:contentDescription="@string/computer_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_computer_class" />
+                        android:src="@drawable/ic_class_computer" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -198,7 +198,7 @@
                         android:background="@drawable/background_yellow"
                         android:contentDescription="@string/business_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_business_class" />
+                        android:src="@drawable/ic_class_business" />
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -43,7 +43,7 @@
                         android:background="@drawable/background_green"
                         android:contentDescription="@string/computer_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_computer_class" />
+                        android:src="@drawable/ic_class_computer" />
 
                     <View
                         android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                         android:background="@drawable/background_purple"
                         android:contentDescription="@string/biology_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_biology_class" />
+                        android:src="@drawable/ic_class_biology" />
 
 
                     <View
@@ -132,7 +132,7 @@
                         android:background="@drawable/background_pink"
                         android:contentDescription="@string/biology_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_chemistry_class" />
+                        android:src="@drawable/ic_class_chemistry" />
 
 
                     <View
@@ -178,9 +178,9 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/background_yellow"
-                        android:contentDescription="@string/biology_class"
+                        android:contentDescription="@string/math_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_biology_class" />
+                        android:src="@drawable/ic_class_math" />
 
 
                     <View
@@ -218,9 +218,9 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/background_green"
-                        android:contentDescription="@string/biology_class"
+                        android:contentDescription="@string/english_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_chemistry_class" />
+                        android:src="@drawable/ic_class_english" />
 
 
                     <View
@@ -268,7 +268,7 @@
                         android:background="@drawable/background_yellow"
                         android:contentDescription="@string/swahili_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_biology_class" />
+                        android:src="@drawable/ic_class_swahili" />
 
 
                     <View
@@ -308,7 +308,7 @@
                         android:background="@drawable/background_green"
                         android:contentDescription="@string/physics_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_chemistry_class" />
+                        android:src="@drawable/ic_class_physics" />
 
 
                     <View
@@ -356,7 +356,7 @@
                         android:background="@drawable/background_yellow"
                         android:contentDescription="@string/agriculture_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_biology_class" />
+                        android:src="@drawable/ic_class_agriculture" />
 
 
                     <View
@@ -396,7 +396,7 @@
                         android:background="@drawable/background_green"
                         android:contentDescription="@string/cre_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_chemistry_class" />
+                        android:src="@drawable/ic_class_cre" />
 
 
                     <View
@@ -445,7 +445,7 @@
                         android:background="@drawable/background_yellow"
                         android:contentDescription="@string/business_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_business_class" />
+                        android:src="@drawable/ic_class_business" />
 
 
                     <View
@@ -493,7 +493,7 @@
                         android:background="@drawable/background_yellow"
                         android:contentDescription="@string/geography_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_biology_class" />
+                        android:src="@drawable/ic_class_biology" />
 
 
                     <View
@@ -533,7 +533,7 @@
                         android:background="@drawable/background_green"
                         android:contentDescription="@string/history_class"
                         android:padding="10dp"
-                        android:src="@drawable/ic_chemistry_class" />
+                        android:src="@drawable/ic_class_history" />
 
 
                     <View

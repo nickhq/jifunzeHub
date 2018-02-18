@@ -14,4 +14,6 @@
     <color name="deepColorBlue">#152b38</color>
     <color name="pink">#fe104d</color>
     <color name="color_accent">#FF53C39A</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

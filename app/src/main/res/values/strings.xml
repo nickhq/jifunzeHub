@@ -19,27 +19,27 @@
 
 
     <string name="math">Mathematics</string>
-    <string name="math_class">Mathematics</string>
+    <string name="math_class">Mathematics - Mathematical PI symbol</string>
     <string name="math_desc">Mathematics</string>
 
     <string name="english">English</string>
-    <string name="english_class">English</string>
+    <string name="english_class">English - England Flag</string>
     <string name="english_desc">English</string>
 
     <string name="swahili">Kiswahili</string>
-    <string name="swahili_class">Kiswahili</string>
+    <string name="swahili_class">Kiswahili - Tanzanian Flag</string>
     <string name="swahili_desc">Kiswahili</string>
 
     <string name="physics">Physics</string>
-    <string name="physics_class">Physics</string>
+    <string name="physics_class">Physics - Settings gears</string>
     <string name="physics_desc">Physics</string>
 
     <string name="agriculture">Agriculture</string>
-    <string name="agriculture_class">Agriculture</string>
+    <string name="agriculture_class">Agriculture - Sprinkling crops in a farm</string>
     <string name="agriculture_desc">Agriculture</string>
 
     <string name="cre">Cristian Religious Education</string>
-    <string name="cre_class">Cristian Religious Education</string>
+    <string name="cre_class">Cristian Religious Education - Bible</string>
     <string name="cre_desc">Cristian Religious Education</string>
 
     <string name="history">History</string>
